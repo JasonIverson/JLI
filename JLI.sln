@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JLI.Framework.Core", "JLI.Framework.Core\JLI.Framework.Core.csproj", "{326A232D-8D9E-4925-916A-2A61BF0B6B6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JLI.Framework.Models", "JLI.Framework.Models\JLI.Framework.Models.csproj", "{CAF6AA74-AE77-4174-8585-C2AB22F4848E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{326A232D-8D9E-4925-916A-2A61BF0B6B6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{326A232D-8D9E-4925-916A-2A61BF0B6B6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{326A232D-8D9E-4925-916A-2A61BF0B6B6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF6AA74-AE77-4174-8585-C2AB22F4848E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF6AA74-AE77-4174-8585-C2AB22F4848E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF6AA74-AE77-4174-8585-C2AB22F4848E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF6AA74-AE77-4174-8585-C2AB22F4848E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
