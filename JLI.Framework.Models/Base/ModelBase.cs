@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace JLI.Framework.Models
 {
+    
+    /// <summary>
+    /// Represents a base class for a model
+    /// </summary>
     public abstract class ModelBase
     {
-
-        public Guid Id { get; set; }
 
         public DateTime CreatedDateUtc { get; set; }
 
