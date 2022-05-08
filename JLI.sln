@@ -5,7 +5,13 @@ VisualStudioVersion = 16.0.32413.511
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JLI.Framework.Core", "JLI.Framework.Core\JLI.Framework.Core.csproj", "{326A232D-8D9E-4925-916A-2A61BF0B6B6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JLI.Framework.Models", "JLI.Framework.Models\JLI.Framework.Models.csproj", "{CAF6AA74-AE77-4174-8585-C2AB22F4848E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JLI.Framework.Data.Models", "JLI.Framework.Models\JLI.Framework.Data.Models.csproj", "{CAF6AA74-AE77-4174-8585-C2AB22F4848E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Apps", "Apps", "{9793A96E-61B9-4F11-94F8-F3AA213EE2F2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleApp", "Apps\ConsoleApp\ConsoleApp.csproj", "{37A43059-C848-491C-9E6F-80D78D88F9A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JLI.Framework.Data", "JLI.Framework.Data\JLI.Framework.Data.csproj", "{4420D367-20A4-4601-8490-A318A1172DEC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,9 +27,20 @@ Global
 		{CAF6AA74-AE77-4174-8585-C2AB22F4848E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CAF6AA74-AE77-4174-8585-C2AB22F4848E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CAF6AA74-AE77-4174-8585-C2AB22F4848E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{37A43059-C848-491C-9E6F-80D78D88F9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{37A43059-C848-491C-9E6F-80D78D88F9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{37A43059-C848-491C-9E6F-80D78D88F9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{37A43059-C848-491C-9E6F-80D78D88F9A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4420D367-20A4-4601-8490-A318A1172DEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4420D367-20A4-4601-8490-A318A1172DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4420D367-20A4-4601-8490-A318A1172DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4420D367-20A4-4601-8490-A318A1172DEC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{37A43059-C848-491C-9E6F-80D78D88F9A5} = {9793A96E-61B9-4F11-94F8-F3AA213EE2F2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E63CCABD-68D9-4756-8A85-E3FB38FF39E4}
