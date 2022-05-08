@@ -4,10 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JLI.Framework.Core
-{
-    public static class StringExtensions
-    {
+namespace JLI.Framework.Core {
+    public static class StringExtensions {
 
         #region String Extensions
 
@@ -16,8 +14,7 @@ namespace JLI.Framework.Core
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static String ToTitleCase(this String source)
-        {
+        public static String ToTitleCase(this String source) {
             if (String.IsNullOrWhiteSpace(source))
                 return source;
             return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(source);
@@ -32,15 +29,11 @@ namespace JLI.Framework.Core
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static String Coalesce(this IEnumerable<String> source)
-        {
+        public static String Coalesce(this IEnumerable<String> source) {
             String returnValue = null;
-            if (source != null && source.Any())
-            {
-                foreach(String value in source)
-                {
-                    if (!String.IsNullOrWhiteSpace(value))
-                    {
+            if (source != null && source.Any()) {
+                foreach (String value in source) {
+                    if (!String.IsNullOrWhiteSpace(value)) {
                         returnValue = value;
                         break;
                     }
