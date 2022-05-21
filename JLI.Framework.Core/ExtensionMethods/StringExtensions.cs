@@ -10,6 +10,17 @@ namespace JLI.Framework.Core {
         #region String Extensions
 
         /// <summary>
+        /// Normalizes a <see cref="String"/>'s character casing for comparison operations where case sensitivity is important
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static String Normalize(this String source) {
+            if (String.IsNullOrWhiteSpace(source))
+                return source;
+            return source.ToUpper();
+        }
+
+        /// <summary>
         /// Returns a "string in this format" as a "String In This Format"
         /// </summary>
         /// <param name="source"></param>
@@ -17,7 +28,29 @@ namespace JLI.Framework.Core {
         public static String ToTitleCase(this String source) {
             if (String.IsNullOrWhiteSpace(source))
                 return source;
-            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(source);
+            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(source);            
+        }
+
+        /// <summary>
+        /// Url decodes the <see cref="String"/> value.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static String UrlDecode(String source) {
+            if (String.IsNullOrWhiteSpace(source))
+                return source;
+            return System.Web.HttpUtility.UrlDecode(source);
+        }
+
+        /// <summary>
+        /// Url encodes the <see cref="String"/> value.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public static String UrlEncode(this String source) {
+            if (String.IsNullOrWhiteSpace(source))
+                return source;
+            return System.Web.HttpUtility.UrlEncode(source);
         }
 
         #endregion
