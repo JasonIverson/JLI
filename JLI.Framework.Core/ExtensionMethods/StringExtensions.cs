@@ -21,6 +21,17 @@ namespace JLI.Framework.Core {
         }
 
         /// <summary>
+        /// Returns a <see cref="String"/> value as a JavaScript literal, enclosed in quotes.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static String ToJavaScriptLiteral(this String value) {
+            if (value == null)
+                return Constants.JavaScript.Null;
+            return $"{Constants.JavaScript.DoubleQuote}{value.Replace("\"", "\\\"")}{Constants.JavaScript.DoubleQuote}";
+        }
+
+        /// <summary>
         /// Returns a "string in this format" as a "String In This Format"
         /// </summary>
         /// <param name="source"></param>
@@ -37,7 +48,7 @@ namespace JLI.Framework.Core {
         /// <param name="source"></param>
         /// <returns></returns>
         public static String UrlDecode(String source) {
-            if (String.IsNullOrWhiteSpace(source))
+            if (source == null)
                 return source;
             return System.Web.HttpUtility.UrlDecode(source);
         }
@@ -48,7 +59,7 @@ namespace JLI.Framework.Core {
         /// <param name="source"></param>
         /// <returns></returns>
         public static String UrlEncode(this String source) {
-            if (String.IsNullOrWhiteSpace(source))
+            if (source == null)
                 return source;
             return System.Web.HttpUtility.UrlEncode(source);
         }

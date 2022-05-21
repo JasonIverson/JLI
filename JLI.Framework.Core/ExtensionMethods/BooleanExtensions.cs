@@ -8,6 +8,8 @@ namespace JLI.Framework.Core {
 
     public static class BooleanExtensions {
 
+        #region Boolean
+
         /// <summary>
         /// Returns a <see cref="bool"/> value as a JavaScript literal.
         /// </summary>
@@ -37,5 +39,21 @@ namespace JLI.Framework.Core {
             return value ? trueString : falseString;
         }
 
+        #endregion Boolean
+
+        #region Nullable Boolan
+
+        /// <summary>
+        /// Returns a <see cref="bool?"/> value as a JavaScript literal.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static String ToJavaScriptLiteral(this bool? value) {
+            if (!value.HasValue)
+                return Constants.JavaScript.Null;
+            return value.Value.ToJavaScriptLiteral();
+        }
+
+        #endregion Nullable Boolean
     }
 }
