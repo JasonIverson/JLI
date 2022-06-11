@@ -18,7 +18,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		.editorconfig = .editorconfig
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "WebApp\WebApp.csproj", "{DCD71CE8-FF3B-4958-BDB3-4FFFD5A91309}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApp", "Apps\WebApp\WebApp.csproj", "{DCD71CE8-FF3B-4958-BDB3-4FFFD5A91309}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
