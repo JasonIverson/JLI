@@ -1,0 +1,9 @@
+﻿header {
+    color: #fff;
+    background-color: #333;
+    border-bottom: solid $border-width $border-color;
+
+    & a {
+        color: #fff;
+    }
+}

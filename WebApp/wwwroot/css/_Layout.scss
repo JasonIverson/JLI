@@ -1,0 +1,34 @@
+﻿body {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: $spacing * 2;    
+}
+
+/*Breakpoints based off of https://tailwindcss.com/docs/responsive-design */
+/*sm*/
+@media (min-width: $breakpoint-sm) {
+}
+
+/*md*/
+@media (min-width: $breakpoint-md) {
+}
+
+/*lg*/
+@media (min-width: $breakpoint-lg) {
+}
+
+/*xl*/
+@media (min-width: $breakpoint-xl) {
+    .container {
+        width: $breakpoint-xl;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+/*2xl*/
+@media (min-width: $breakpoint-2xl) {
+}
