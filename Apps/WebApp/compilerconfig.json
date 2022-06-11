@@ -4,7 +4,11 @@
     "inputFile": "wwwroot/css/site.scss"
   },
   {
-    "outputFile": "wwwroot/js/site.min.js",
-    "inputFile": "wwwroot/js/site.js"
+    "outputFile": "wwwroot/css/default.css",
+    "inputFile": "wwwroot/css/default.scss"
+  },
+  {
+    "outputFile": "wwwroot/js/default.min.js",
+    "inputFile": "wwwroot/js/default.js"
   }
 ]
