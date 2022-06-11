@@ -348,8 +348,3 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
-
-#Minified files
-*.css
-*.min.css
-*.min.js
