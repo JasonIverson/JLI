@@ -1,10 +1,7 @@
-﻿﻿* {
-    font-family: Calibri, Verdana, Arial;
-}
-
-a {
-    text-decoration: underline;
-}
+﻿@import "_Variables.scss";
+@import "_Reset.scss";
+@import "_Defaults.scss";
+@import "_Layout.scss";
 
 .container {
     border: solid 1px blue;

@@ -4,19 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - WebApp</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="~/css/default.min.css" />
+    <link rel="stylesheet" href="~/css/default.min.css" asp-append-version="true" />
     <script>
-        tailwind.config = {
-            theme: {
-                container: {
-                    center: true,
-                    padding: {
-                        DEFAULT: '16px'
-                    }
-                }
-            }
-        }
     </script>
 </head>
 <body>
@@ -43,7 +32,6 @@
             @RenderBody()
         </main>
     </div>
-
     <footer>
         <div class="container">
             &copy; 2022 - WebApp - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

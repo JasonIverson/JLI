@@ -1,0 +1,32 @@
+﻿@import "_Variables.scss";
+
+body {
+    color: $color-text;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: $font-size;
+    line-height: $line-height;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+}
+
+h1 {
+    font-size: calc($font-size * 2);
+    line-height: calc($font-size * 3);
+}
+
+h2 {
+    font-size: calc($font-size * 1.5);
+    line-height: calc($font-size * 2);
+}
+
+h3 {
+    font-size: calc($font-size * 1.25);
+    line-height: calc($font-size * 1.5);
+}
+
+h4, h5, h6 {
+    font-size: $font-size;
+    line-height: $line-height;
+}
