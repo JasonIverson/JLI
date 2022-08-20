@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JLI.Framework.Core.Constants;
 
-namespace JLI.Framework.Core {
+namespace System {
     public static class StringExtensions {
 
         #region String Extensions
@@ -27,8 +28,8 @@ namespace JLI.Framework.Core {
         /// <returns></returns>
         public static String ToJavaScriptLiteral(this String value) {
             if (value == null)
-                return Constants.JavaScript.Null;
-            return $"{Constants.JavaScript.DoubleQuote}{value.Replace("\"", "\\\"")}{Constants.JavaScript.DoubleQuote}";
+                return JavaScript.Null;
+            return $"{JavaScript.DoubleQuote}{value.Replace("\"", "\\\"")}{JavaScript.DoubleQuote}";
         }
 
         /// <summary>
@@ -69,13 +70,14 @@ namespace JLI.Framework.Core {
         #region IEnumerable<String> Extensions
 
         /// <summary>
-        /// Returns the first non-null or white space value, or null in the event that no values are found.
+        /// Returns the first non-null or white space value, or optionally provided <paramref name="defaultValue"/>, in the event that no values are found.
         /// </summary>
         /// <param name="source"></param>
+        /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static String Coalesce(this IEnumerable<String> source) {
-            String returnValue = null;
-            if (source != null && source.Any()) {
+        public static String Coalesce(this IEnumerable<String> source, String defaultValue = null) {
+            String returnValue = defaultValue;
+            if (source?.Any() ?? false) {
                 foreach (String value in source) {
                     if (!String.IsNullOrWhiteSpace(value)) {
                         returnValue = value;

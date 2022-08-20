@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JLI.Framework.Core.Constants;
 
-namespace JLI.Framework.Core {
+namespace System {
 
     public static class BooleanExtensions {
 
@@ -41,7 +42,7 @@ namespace JLI.Framework.Core {
 
         #endregion Boolean
 
-        #region Nullable Boolan
+        #region Nullable Boolean
 
         /// <summary>
         /// Returns a <see cref="bool?"/> value as a JavaScript literal.
@@ -50,10 +51,34 @@ namespace JLI.Framework.Core {
         /// <returns></returns>
         public static String ToJavaScriptLiteral(this bool? value) {
             if (!value.HasValue)
-                return Constants.JavaScript.Null;
+                return JavaScript.Null;
             return value.Value.ToJavaScriptLiteral();
         }
 
         #endregion Nullable Boolean
+
+        #region IEnumerable<bool?>
+
+        /// <summary>
+        /// Returns the first non-null value, or optionally provided <paramref name="defaultValue"/>, in the event that no values are found.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static bool? Coalesce(IEnumerable<bool?> source, bool? defaultValue = null) {
+            bool? returnValue = defaultValue;
+            if (source?.Any() ?? false) {
+                foreach (bool? value in source) {
+                    if (value.HasValue) {
+                        returnValue = value;
+                        break;
+                    }
+                }
+            }
+            return returnValue;
+        }
+
+        #endregion IEnumerable<bool?>
+
     }
 }
