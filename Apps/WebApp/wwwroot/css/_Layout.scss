@@ -1,11 +1,64 @@
-﻿
+﻿@import "_Variables.scss";
+
+/* Desktop */
 .container {
     width: 1440px;
     margin: auto;
+    padding-left: calc($padding * 4);
+    padding-right: calc($padding * 4);
 }
 
+/* Smaller Desktop */
 @media (max-width: 1439px) {
     .container {
-        width: 100%;
+        width: unset;
+        padding-left: calc($padding * 3);
+        padding-right: calc($padding * 3);
+    }
+}
+
+/* Tablet */
+@media (max-width: 1023px) {
+    .container {
+        width: unset;
+        padding-left: calc($padding * 3);
+        padding-right: calc($padding * 3);
+    }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+    .container {
+        width: unset;
+        padding-left: calc($padding * 2);
+        padding-right: calc($padding * 2);
+    }
+}
+
+.mb {
+    &-1 {
+        margin-bottom: $margin;
+    }
+
+    &-2 {
+        margin-bottom: calc($margin * 2);
+    }
+
+    &-3 {
+        margin-bottom: calc($margin * 3);
+    }
+}
+
+.mt {
+    &-1 {
+        margin-top: $margin;
+    }
+
+    &-2 {
+        margin-top: calc($margin * 2);
+    }
+
+    &-3 {
+        margin-top: calc($margin * 3);
     }
 }
