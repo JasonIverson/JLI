@@ -7,7 +7,7 @@ using System.Reflection;
 using JLI.Framework.Data;
 
 namespace Microsoft.Extensions.DependencyInjection {
-    
+
     /// <summary>
     /// Registers repositories as scoped services
     /// </summary>

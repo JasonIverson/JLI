@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JLI.Framework.Services {
-    
+
     /// <summary>
     /// Used to determine the manner in which services are added to a <see cref="Microsoft.Extensions.DependencyInjection.IServiceCollection"/>
     /// </summary>

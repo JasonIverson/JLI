@@ -14,7 +14,7 @@ namespace JLI.Framework.Services {
 
         #region Constructor(s)
 
-        public ServiceLoaderAttribute( ServiceLifetimes lifetime, Type? implementingInterface = null )
+        public ServiceLoaderAttribute(ServiceLifetimes lifetime, Type? implementingInterface = null)
             : base() {
             this.Lifetime = lifetime;
             if (implementingInterface != null && !implementingInterface.IsInterface) {

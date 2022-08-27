@@ -6,14 +6,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace JLI.Framework.Services
-{
+namespace JLI.Framework.Services {
 
     /// <summary>
     /// Base class for Services
     /// </summary>
-    public abstract class ServiceBase
-    {
+    public abstract class ServiceBase {
 
         #region Properties
 

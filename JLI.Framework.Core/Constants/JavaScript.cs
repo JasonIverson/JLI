@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JLI.Framework.Core.Constants {
-    
+
     /// <summary>
     /// Constants used for JavaScript related functionality or implementation
     /// </summary>

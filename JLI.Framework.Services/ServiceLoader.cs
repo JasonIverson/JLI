@@ -49,7 +49,7 @@ namespace JLI.Framework.Services {
                         default:
                             throw new NotImplementedException();
                     }
-                }                
+                }
             }
         }
 

@@ -40,7 +40,7 @@ namespace System {
         public static String ToTitleCase(this String source) {
             if (String.IsNullOrWhiteSpace(source))
                 return source;
-            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(source);            
+            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(source);
         }
 
         /// <summary>
