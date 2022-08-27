@@ -11,7 +11,7 @@ namespace JLI.Framework.Data.Models {
     /// </summary>
     public abstract class ModelBase<TKey> : ModelBase {
 
-        public TKey Id { get; set; }
+        public virtual TKey Id { get; set; }
 
     }
 }

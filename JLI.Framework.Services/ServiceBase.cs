@@ -8,6 +8,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace JLI.Framework.Services
 {
+
+    /// <summary>
+    /// Base class for Services
+    /// </summary>
     public abstract class ServiceBase
     {
 
