@@ -10,7 +10,7 @@ namespace JLI.Framework.Services {
     /// An attribute used to decorate services with in order to have them registered in a <see cref="Microsoft.Extensions.DependencyInjection.IServiceCollection"/> without explicitly having to register each service.
     /// </summary>
     [AttributeUsage(AttributeTargets.Class)]
-    public sealed class ServiceLoaderAttribute : System.Attribute {
+    public sealed class ServiceLoaderAttribute : Attribute {
 
         #region Constructor(s)
 

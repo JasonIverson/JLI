@@ -9,7 +9,7 @@ namespace JLI.Framework.Data {
     /// <summary>
     /// Allows a data store to track different types of changes to an entity
     /// </summary>
-    public enum ChangeTrackingTypes {
+    public enum ChangeTrackingTypes : byte {
 
         /// <summary>
         /// A new entity should be added to the data store
