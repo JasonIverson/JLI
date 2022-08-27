@@ -8,7 +8,5 @@ using Microsoft.EntityFrameworkCore;
 namespace JLI.Framework.Data {
     public class DbContext : Microsoft.EntityFrameworkCore.DbContext {
 
-
-
     }
 }

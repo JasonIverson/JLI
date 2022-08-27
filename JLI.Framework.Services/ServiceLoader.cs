@@ -33,22 +33,23 @@ namespace JLI.Framework.Services {
             }
 
             foreach (Type implementationType in allTypes) {
-                ServiceLoaderAttribute serviceLoaderAttribute = implementationType.GetCustomAttribute<ServiceLoaderAttribute>();
-                Type serviceType = serviceLoaderAttribute.ImplementingInterface ?? implementationType;
-
-                switch (serviceLoaderAttribute.Lifetime) {
-                    case ServiceLifetimes.Scoped:
-                        serviceCollection.AddScoped(serviceType, implementationType);
-                        break;
-                    case ServiceLifetimes.Singleton:
-                        serviceCollection.AddSingleton(serviceType, implementationType);
-                        break;
-                    case ServiceLifetimes.Transient:
-                        serviceCollection.AddTransient(serviceType, implementationType);
-                        break;
-                    default:
-                        throw new NotImplementedException();
-                }
+                ServiceLoaderAttribute? serviceLoaderAttribute = implementationType.GetCustomAttribute<ServiceLoaderAttribute>();
+                if (serviceLoaderAttribute != null) {
+                    Type serviceType = serviceLoaderAttribute.ImplementingInterface ?? implementationType;
+                    switch (serviceLoaderAttribute.Lifetime) {
+                        case ServiceLifetimes.Scoped:
+                            serviceCollection.AddScoped(serviceType, implementationType);
+                            break;
+                        case ServiceLifetimes.Singleton:
+                            serviceCollection.AddSingleton(serviceType, implementationType);
+                            break;
+                        case ServiceLifetimes.Transient:
+                            serviceCollection.AddTransient(serviceType, implementationType);
+                            break;
+                        default:
+                            throw new NotImplementedException();
+                    }
+                }                
             }
         }
 
