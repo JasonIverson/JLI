@@ -17,15 +17,16 @@ namespace JLI.Framework.Data {
         /// <summary>
         /// Allows to query for a the <typeparamref name="TModel"/>
         /// </summary>
+        /// <param name="trackingEnabled"></param>
         /// <returns></returns>
-        IQueryable<TModel> AsQueryable();
+        IQueryable<TModel> AsQueryable(bool trackingEnabled);
 
         /// <summary>
-        /// Configures the underlying data store to track the <paramref name="model"/> as either an existing or new record according to the <paramref name="updateExisting"/> parameter provided.
+        /// Configures the underlying data store to track the <paramref name="model"/> according to the <paramref name="changeTrackingType"/> parameter provided.
         /// </summary>
         /// <param name="model"></param>
-        /// <param name="updateExisting"></param>
-        void TrackChanges(TModel model, bool updateExisting);
+        /// <param name="changeTrackingType"></param>
+        void TrackChanges(TModel model, ChangeTrackingTypes changeTrackingType);
 
         // int SaveChanges();
 

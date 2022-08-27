@@ -11,8 +11,8 @@ namespace JLI.Framework.Data {
     /// Implementation of a repository for the <typeparamref name="TModel"/>
     /// </summary>
     /// <typeparam name="TModel"></typeparam>
-    public abstract class ModelRepository<TModel> : IModelRepository<TModel>
-        where TModel : Models.Model {
+    public class ModelRepository<TModel> : IModelRepository<TModel>
+        where TModel : Models.Model, new() {
 
         #region Fields
 
@@ -37,27 +37,38 @@ namespace JLI.Framework.Data {
         /// <summary>
         /// Allows to query for a the <typeparamref name="TModel"/>
         /// </summary>
+        /// <param name="trackingEnabled"></param>
         /// <returns></returns>
-        public IQueryable<TModel> AsQueryable() {
-            return this.DbSet.AsQueryable();
+        public IQueryable<TModel> AsQueryable(bool trackingEnabled) {
+            IQueryable<TModel> returnValue = this.DbSet.AsQueryable();
+            if (!trackingEnabled)
+                returnValue = returnValue.AsNoTracking();
+            return returnValue;
         }
 
         /// <summary>
-        /// Configures the underlying data store to track the <paramref name="model"/> as either an existing or new record according to the <paramref name="updateExisting"/> parameter provided.
+        /// Configures the underlying data store to track the <paramref name="model"/> according to the <paramref name="changeTrackingType"/> parameter provided.
         /// </summary>
         /// <param name="model"></param>
-        /// <param name="updateExisting"></param>
-        public void TrackChanges(TModel model, bool updateExisting) {
-            if (updateExisting) {
-                model.UpdatedDateUtc = DateTime.UtcNow;
-                this.DbSet.Update(model);
+        /// <param name="changeTrackingType"></param>
+        public void TrackChanges(TModel model, ChangeTrackingTypes changeTrackingType) {
+            switch(changeTrackingType) {
+                case ChangeTrackingTypes.Add:
+                    this.DbSet.Add(model);
+                    break;
+                case ChangeTrackingTypes.Update:
+                    model.UpdatedDateUtc = DateTime.UtcNow;
+                    this.DbSet.Update(model);
+                    break;
+                case ChangeTrackingTypes.Delete:
+                    this.DbSet.Remove(model);
+                    break;
+                default:
+                    throw new NotImplementedException();
             }
-            else {
-                this.DbSet.Add(model);
-            }            
         }
 
         #endregion Public Members
-        
+
     }
 }
