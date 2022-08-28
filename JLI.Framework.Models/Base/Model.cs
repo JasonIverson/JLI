@@ -13,7 +13,7 @@ namespace JLI.Framework.Data.Models {
 
         #region Fields
 
-        private static Microsoft.EntityFrameworkCore.ValueGeneration.SequentialGuidValueGenerator GuidGenerator;
+        private static readonly Microsoft.EntityFrameworkCore.ValueGeneration.SequentialGuidValueGenerator GuidGenerator;
 
         #endregion Fields
 

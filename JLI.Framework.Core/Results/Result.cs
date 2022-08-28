@@ -58,7 +58,7 @@ namespace JLI.Framework.Core {
         }
 
         public static Result<TValue> ErrorResult<TValue>(String message) {
-            return new Result<TValue>(false, message, null, default(TValue));
+            return new Result<TValue>(false, message, null, default);
         }
 
         public static Result<TValue> ErrorResult<TValue>(String message, Exception exception) {

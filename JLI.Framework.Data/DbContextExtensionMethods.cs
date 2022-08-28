@@ -21,7 +21,7 @@ namespace Microsoft.Extensions.DependencyInjection {
         public static void LoadRepositories(this EntityFrameworkCore.DbContext dbContext, IServiceCollection serviceCollection) {
             Type type = dbContext.GetType();
             PropertyInfo[] properties = type.GetProperties()
-                .Where(x => x.PropertyType.IsGenericType && (typeof(EntityFrameworkCore.DbSet<>).IsAssignableFrom(x.PropertyType.GetGenericTypeDefinition())))
+                .Where(x => x.PropertyType.IsGenericType && typeof(EntityFrameworkCore.DbSet<>).IsAssignableFrom(x.PropertyType.GetGenericTypeDefinition()))
                 .ToArray();
             foreach (PropertyInfo propertyInfo in properties) {
                 // Logic adapted from this SO answer https://stackoverflow.com/a/67530
