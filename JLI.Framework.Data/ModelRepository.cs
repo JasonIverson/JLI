@@ -68,6 +68,24 @@ namespace JLI.Framework.Data {
             }
         }
 
+        /// <summary>
+        /// Saves changes in the underlying data store.
+        /// </summary>
+        /// <returns></returns>
+        public int SaveChanges() {
+            int affectedRows = this.DbContext.SaveChanges();
+            return affectedRows;
+        }
+
+        /// <summary>
+        /// Saves changes in the underlying data store.
+        /// </summary>
+        /// <returns></returns>
+        public async Task<int> SaveChangesAsync() {
+            int affectedRows = await this.DbContext.SaveChangesAsync();
+            return affectedRows;
+        }
+
         #endregion Public Members
 
     }

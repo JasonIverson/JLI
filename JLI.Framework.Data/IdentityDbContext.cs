@@ -7,14 +7,19 @@ using Microsoft.AspNetCore.Identity;
 using EFCore = Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace JLI.Framework.Data {
-    public class IdentityDbContext : EFCore.IdentityDbContext<
-        IdentityUser<Guid>,
-        IdentityRole<Guid>,
-        Guid,
-        IdentityUserClaim<Guid>,
-        IdentityUserRole<Guid>,
-        IdentityUserLogin<Guid>,
-        IdentityRoleClaim<Guid>,
-        IdentityUserToken<Guid>> {
+
+    public class IdentityDbContext<TKey> : EFCore.IdentityDbContext<
+        IdentityUser<TKey>,
+        IdentityRole<TKey>,
+        TKey,
+        IdentityUserClaim<TKey>,
+        IdentityUserRole<TKey>,
+        IdentityUserLogin<TKey>,
+        IdentityRoleClaim<TKey>,
+        IdentityUserToken<TKey>> 
+        where TKey : IEquatable<TKey> {
+    }
+
+    public class IdentityDbContext : IdentityDbContext<Guid> {
     }
 }

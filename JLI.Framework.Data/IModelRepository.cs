@@ -28,9 +28,17 @@ namespace JLI.Framework.Data {
         /// <param name="changeTrackingType"></param>
         void TrackChanges(TModel model, ChangeTrackingTypes changeTrackingType);
 
-        // int SaveChanges();
+        /// <summary>
+        /// Saves changes in the underlying data store.
+        /// </summary>
+        /// <returns></returns>
+        int SaveChanges();
 
-        // Task<int> SaveChangesAsync();
+        /// <summary>
+        /// Saves changes in the underlying data store.
+        /// </summary>
+        /// <returns></returns>
+        Task<int> SaveChangesAsync();
 
     }
 }
