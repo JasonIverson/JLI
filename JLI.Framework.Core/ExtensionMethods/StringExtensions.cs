@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using JLI.Framework.Core.Constants;
 
@@ -19,6 +20,19 @@ namespace System {
             if (String.IsNullOrWhiteSpace(source))
                 return source;
             return source.ToUpper();
+        }
+
+        /// <summary>
+        /// Removes any non-digit characters from a <see cref="String"/>, and returns what remains of the String.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static String ToDigits(this String value) {
+            if (String.IsNullOrWhiteSpace(value))
+                return value;
+
+            String returnValue = Regex.Replace(value, @"\D+", String.Empty);
+            return returnValue;
         }
 
         /// <summary>
