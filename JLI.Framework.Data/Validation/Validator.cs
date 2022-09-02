@@ -7,8 +7,14 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace JLI.Framework.Data {
-    
+
     public static class Validator {
+
+        #region Fields
+
+        private static readonly TimeSpan RegexTimeout = TimeSpan.FromMilliseconds(200);
+
+        #endregion Fields
 
         /// <summary>
         /// Determines whether the <paramref name="emailAddress"/> is in the form of a valid email address.
@@ -23,7 +29,7 @@ namespace JLI.Framework.Data {
             try {
                 // Normalize the domain
                 emailAddress = Regex.Replace(emailAddress, @"(@)(.+)$", DomainMapper,
-                                      RegexOptions.None, TimeSpan.FromMilliseconds(200));
+                                      RegexOptions.None, Validator.RegexTimeout);
 
                 // Examines the domain part of the email and normalizes it.
                 string DomainMapper(Match match) {
@@ -36,17 +42,16 @@ namespace JLI.Framework.Data {
                     return match.Groups[1].Value + domainName;
                 }
             }
-            catch (RegexMatchTimeoutException e) {
+            catch (RegexMatchTimeoutException) {
                 return false;
             }
-            catch (ArgumentException e) {
+            catch (ArgumentException) {
                 return false;
             }
 
             try {
-                return Regex.IsMatch(emailAddress,
-                    @"^[^@\s]+@[^@\s]+\.[^@\s]+$",
-                    RegexOptions.IgnoreCase, TimeSpan.FromMilliseconds(250));
+                return Regex.IsMatch(emailAddress, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase, 
+                    TimeSpan.FromMilliseconds(250));
             }
             catch (RegexMatchTimeoutException) {
                 return false;
@@ -62,12 +67,13 @@ namespace JLI.Framework.Data {
             if (String.IsNullOrWhiteSpace(phoneNumber))
                 return false;
 
-            bool result = Regex.Match(phoneNumber, @"^\d{10}$").Success;
+            bool result = Regex.IsMatch(phoneNumber, @"^\d{10}$", RegexOptions.None, 
+                Validator.RegexTimeout);
             return result;
         }
 
         /// <summary>
-        /// Determines whether the <paramref name="url"/> is in the form of a valid HTTP or HTTPS Url.
+        /// Determines whether the <paramref name="url"/> is in the form of a valid HTTP or HTTPS Absolute Url.
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
