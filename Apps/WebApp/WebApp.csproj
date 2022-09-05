@@ -46,4 +46,10 @@
     <Folder Include="Areas\Admin\Views\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\JLI.Framework.Core\JLI.Framework.Core.csproj" />
+    <ProjectReference Include="..\..\JLI.Framework.Data\JLI.Framework.Data.csproj" />
+    <ProjectReference Include="..\..\JLI.Framework.Services\JLI.Framework.Services.csproj" />
+  </ItemGroup>
+
 </Project>

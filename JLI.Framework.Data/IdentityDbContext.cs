@@ -18,8 +18,16 @@ namespace JLI.Framework.Data {
         IdentityRoleClaim<TKey>,
         IdentityUserToken<TKey>> 
         where TKey : IEquatable<TKey> {
+
+        public FrameworkDbContext(Microsoft.EntityFrameworkCore.DbContextOptions options)
+            : base(options) { }
+
     }
 
     public class FrameworkDbContext : FrameworkDbContext<Guid> {
+
+        public FrameworkDbContext(Microsoft.EntityFrameworkCore.DbContextOptions options)
+            : base(options) { }
+
     }
 }
