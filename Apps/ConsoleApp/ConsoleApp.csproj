@@ -17,7 +17,6 @@
   <ItemGroup>
     <ProjectReference Include="..\..\JLI.Framework.Core\JLI.Framework.Core.csproj" />
     <ProjectReference Include="..\..\JLI.Framework.Data\JLI.Framework.Data.csproj" />
-    <ProjectReference Include="..\..\JLI.Framework.Models\JLI.Framework.Data.Models.csproj" />
   </ItemGroup>
 
   <ItemGroup>

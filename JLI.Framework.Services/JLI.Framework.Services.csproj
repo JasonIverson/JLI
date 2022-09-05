@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
@@ -13,7 +13,6 @@
   <ItemGroup>
     <ProjectReference Include="..\JLI.Framework.Core\JLI.Framework.Core.csproj" />
     <ProjectReference Include="..\JLI.Framework.Data\JLI.Framework.Data.csproj" />
-    <ProjectReference Include="..\JLI.Framework.Models\JLI.Framework.Data.Models.csproj" />
   </ItemGroup>
 
 </Project>
