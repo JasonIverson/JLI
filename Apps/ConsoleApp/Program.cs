@@ -37,7 +37,7 @@ namespace ConsoleApp {
             value = false;
             Console.WriteLine($"bool?\t|\t{value}\t|\t{value.ToJavaScriptLiteral()}");
 
-            String stringValue = null;
+            String? stringValue = null;
             Console.WriteLine($"string\t|\t{stringValue}\t|\t{stringValue.ToJavaScriptLiteral()}");
             stringValue = "this is a \"non-null\" string";
             Console.WriteLine($"string\t|\t{stringValue}\t|\t{stringValue.ToJavaScriptLiteral()}");

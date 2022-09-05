@@ -40,7 +40,7 @@ namespace System {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static String ToJavaScriptLiteral(this String value) {
+        public static String ToJavaScriptLiteral(this String? value) {
             if (value == null)
                 return JavaScript.Null;
             return $"{JavaScript.DoubleQuote}{value.Replace("\"", "\\\"")}{JavaScript.DoubleQuote}";
@@ -62,7 +62,7 @@ namespace System {
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static String UrlDecode(String source) {
+        public static String? UrlDecode(String? source) {
             if (source == null)
                 return source;
             return System.Web.HttpUtility.UrlDecode(source);
@@ -73,7 +73,7 @@ namespace System {
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static String UrlEncode(this String source) {
+        public static String? UrlEncode(this String? source) {
             if (source == null)
                 return source;
             return System.Web.HttpUtility.UrlEncode(source);
@@ -89,8 +89,8 @@ namespace System {
         /// <param name="source"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static String Coalesce(this IEnumerable<String> source, String defaultValue = null) {
-            String returnValue = defaultValue;
+        public static String? Coalesce(this IEnumerable<String> source, String? defaultValue = null) {
+            String? returnValue = defaultValue;
             if (source?.Any() ?? false) {
                 foreach (String value in source) {
                     if (!String.IsNullOrWhiteSpace(value)) {

@@ -21,7 +21,7 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="emailAddress"></param>
         /// <returns></returns>
-        public static bool IsValidEmailAddress(String emailAddress) {
+        public static bool IsValidEmailAddress(String? emailAddress) {
             // https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
             if (String.IsNullOrWhiteSpace(emailAddress))
                 return false;
@@ -63,7 +63,7 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="phoneNumber"></param>
         /// <returns></returns>
-        public static bool IsValidPhoneNumber(String phoneNumber) {
+        public static bool IsValidPhoneNumber(String? phoneNumber) {
             if (String.IsNullOrWhiteSpace(phoneNumber))
                 return false;
 
@@ -77,13 +77,12 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public static bool IsValidUrl(String url) {
+        public static bool IsValidUrl(String? url) {
             // https://stackoverflow.com/a/7581824
             if (String.IsNullOrWhiteSpace(url))
                 return false;
 
-            Uri uriResult;
-            bool result = Uri.TryCreate(url, UriKind.Absolute, out uriResult)
+            bool result = Uri.TryCreate(url, UriKind.Absolute, out Uri? uriResult)
                 && (uriResult.Scheme == Uri.UriSchemeHttp || uriResult.Scheme == Uri.UriSchemeHttps);
             return result;
         }

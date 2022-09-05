@@ -4,6 +4,7 @@
     <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>aspnet-WebApp-5F17352F-622C-4CFF-8948-2B6B943D6DA4</UserSecretsId>
     <CopyRefAssembliesToPublishDirectory>false</CopyRefAssembliesToPublishDirectory>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
 
   <ItemGroup>

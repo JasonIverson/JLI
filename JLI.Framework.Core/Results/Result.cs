@@ -19,7 +19,7 @@ namespace JLI.Framework.Core {
 
         #region Constructor(s)
 
-        internal Result(bool successful, String message, Exception exception) {
+        internal Result(bool successful, String? message, Exception? exception) {
             this.Successful = successful;
             this.Message = message;
             this.Exception = exception;
@@ -71,17 +71,17 @@ namespace JLI.Framework.Core {
 
         public bool Successful { get; private set; }
 
-        public String Message { get; private set; }
+        public String? Message { get; private set; }
 
         [System.Text.Json.Serialization.JsonIgnore]
-        public Exception Exception { get; private set; }
+        public Exception? Exception { get; private set; }
 
         #endregion Properties
 
         #region Overrides
 
-        public override string ToString() {
-            String message = this.Message;
+        public override string? ToString() {
+            String? message = this.Message;
             if (!this.Successful)
                 message = $"Error:  {message}";
             if (this.Exception != null)

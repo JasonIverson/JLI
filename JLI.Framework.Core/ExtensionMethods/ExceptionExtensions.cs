@@ -16,7 +16,7 @@ namespace System {
         public static String Traverse(this Exception exception, String separator = "\r\n\r\n") {
             StringBuilder builder = new StringBuilder();
 
-            Exception realException = exception;
+            Exception? realException = exception;
             while (realException != null) {
                 builder.Append(realException.Message);
                 realException = realException.InnerException;

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace ConsoleApp {
     class Settings {
 
-        public String Value { get; set; }
+        public String? Value { get; set; }
 
     }
 

@@ -15,7 +15,7 @@ namespace JLI.Framework.Core {
 
         #region Constructor(s)
 
-        internal Result(bool successful, String message, Exception exception, TValue returnValue)
+        internal Result(bool successful, String? message, Exception? exception, TValue? returnValue)
             : base(successful, message, exception) {
             this.ReturnValue = returnValue;
         }
@@ -24,13 +24,13 @@ namespace JLI.Framework.Core {
 
         #region Properties
 
-        public TValue ReturnValue { get; private set; }
+        public TValue? ReturnValue { get; private set; }
 
         #endregion Properties
 
         #region Overrides
 
-        public override string ToString() {
+        public override string? ToString() {
             if (this.Successful)
                 return $"{base.ToString()}; {{ {this.ReturnValue} }}";
             return base.ToString();

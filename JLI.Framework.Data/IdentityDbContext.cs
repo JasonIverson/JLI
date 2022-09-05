@@ -8,7 +8,7 @@ using EFCore = Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 
 namespace JLI.Framework.Data {
 
-    public class IdentityDbContext<TKey> : EFCore.IdentityDbContext<
+    public class FrameworkDbContext<TKey> : EFCore.IdentityDbContext<
         IdentityUser<TKey>,
         IdentityRole<TKey>,
         TKey,
@@ -20,6 +20,6 @@ namespace JLI.Framework.Data {
         where TKey : IEquatable<TKey> {
     }
 
-    public class IdentityDbContext : IdentityDbContext<Guid> {
+    public class FrameworkDbContext : FrameworkDbContext<Guid> {
     }
 }
