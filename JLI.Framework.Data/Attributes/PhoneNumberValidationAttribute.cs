@@ -7,10 +7,17 @@ using System.Threading.Tasks;
 
 namespace JLI.Framework.Data {
 
+    /// <summary>
+    /// Validation attribute used to ensure data entered is a valid 10 digit US phone number
+    /// </summary>
     public class PhoneNumberValidationAttribute : FormattedStringValidationAttribute {
+
+        #region Constructor(s)
 
         public PhoneNumberValidationAttribute()
             : base(Validator.IsValidPhoneNumber) { }
+
+        #endregion Constructor(s)
 
     }
 

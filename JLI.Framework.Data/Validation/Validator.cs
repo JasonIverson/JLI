@@ -67,8 +67,8 @@ namespace JLI.Framework.Data {
             if (String.IsNullOrWhiteSpace(phoneNumber))
                 return false;
 
-            bool result = Regex.IsMatch(phoneNumber, @"^\d{10}$", RegexOptions.None, 
-                Validator.RegexTimeout);
+            bool result = Regex.IsMatch(phoneNumber, @"^\d{10}$", RegexOptions.None, Validator.RegexTimeout) &&
+                !phoneNumber.StartsWith("1"); // US area codes do not begin with a 1
             return result;
         }
 
