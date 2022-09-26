@@ -9,9 +9,9 @@ using Microsoft.Extensions.DependencyInjection;
 using JLI.Framework.Data;
 
 namespace JLI.Framework.Services {
-    public abstract class RepositoryServiceBase<TModel, TQueryParameters> : ServiceBase
+    public abstract class RepositoryServiceBase<TModel, TQuerySettings> : ServiceBase
         where TModel : Data.Models.Model, new()
-        where TQueryParameters : QuerySettings {
+        where TQuerySettings : QuerySettings {
 
         #region Constructor(s)
 
@@ -30,10 +30,10 @@ namespace JLI.Framework.Services {
 
         #region Service Methods
 
-        //public async Task<TModel?> GetAsync(Guid id, TQueryParameters queryParameters) {
+        //public async Task<TModel?> GetAsync(Guid id, TQuerySettings querySettings) {
         //    throw new NotImplementedException();
-        //    IQueryable<TModel> queryable = this.Repository.AsQueryable(queryParameters.TrackingEnabled);
-        //    foreach (String include in queryParameters.GetIncludes()) {
+        //    IQueryable<TModel> queryable = this.Repository.AsQueryable(querySettings.TrackingEnabled);
+        //    foreach (String include in querySettings.GetIncludes()) {
         //        queryable = queryable.Include(include);
         //    }
         //}
@@ -47,9 +47,9 @@ namespace JLI.Framework.Services {
         /// </summary>
         /// <param name="queryParameters"></param>
         /// <returns></returns>
-        protected virtual IQueryable<TModel> InitializeQueryable(TQueryParameters queryParameters) {
-            IQueryable<TModel> returnValue = this.Repository.AsQueryable(queryParameters.TrackingEnabled);
-            foreach(String navigationProperty in queryParameters.NavigationProperties) {
+        protected virtual IQueryable<TModel> InitializeQueryable(TQuerySettings querySettings) {
+            IQueryable<TModel> returnValue = this.Repository.AsQueryable(querySettings.TrackingEnabled);
+            foreach(String navigationProperty in querySettings.NavigationProperties) {
                 returnValue = returnValue.Include(navigationProperty);
             }
             return returnValue;
