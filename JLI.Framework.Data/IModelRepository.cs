@@ -26,7 +26,7 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="model"></param>
         /// <param name="changeTrackingType"></param>
-        void TrackChanges(TModel model, ChangeTrackingTypes changeTrackingType);
+        void EntityTracking(TModel model, EntityTrackingTypes changeTrackingType);
 
         /// <summary>
         /// Saves changes in the underlying data store.

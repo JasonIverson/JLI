@@ -51,17 +51,20 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="model"></param>
         /// <param name="changeTrackingType"></param>
-        public void TrackChanges(TModel model, ChangeTrackingTypes changeTrackingType) {
-            switch(changeTrackingType) {
-                case ChangeTrackingTypes.Add:
+        public void EntityTracking(TModel model, EntityTrackingTypes entityTrackingTypesType) {
+            switch(entityTrackingTypesType) {
+                case EntityTrackingTypes.Add:
                     this.DbSet.Add(model);
                     break;
-                case ChangeTrackingTypes.Update:
+                case EntityTrackingTypes.Update:
                     model.UpdatedDateUtc = DateTime.UtcNow;
                     this.DbSet.Update(model);
                     break;
-                case ChangeTrackingTypes.Delete:
+                case EntityTrackingTypes.Delete:
                     this.DbSet.Remove(model);
+                    break;
+                case EntityTrackingTypes.Detach:
+                    this.DbContext.Entry(model).State = EntityState.Detached;
                     break;
                 default:
                     throw new NotImplementedException();
