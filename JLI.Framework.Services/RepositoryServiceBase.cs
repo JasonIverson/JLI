@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using JLI.Framework.Data;
+using System.Linq.Expressions;
 
 namespace JLI.Framework.Services {
     public abstract class RepositoryServiceBase<TModel, TQuerySettings> : ServiceBase
@@ -47,13 +48,21 @@ namespace JLI.Framework.Services {
         /// </summary>
         /// <param name="queryParameters"></param>
         /// <returns></returns>
-        protected virtual IQueryable<TModel> InitializeQueryable(TQuerySettings querySettings) {
+        protected IQueryable<TModel> InitializeQueryable(TQuerySettings querySettings) {
+            return this.InitializeQueryable(querySettings, null);
+        }
+
+        protected IQueryable<TModel> InitializeQueryable(TQuerySettings querySettings, Expression<Func<TModel, bool>>? predicate) {
             IQueryable<TModel> returnValue = this.Repository.AsQueryable(querySettings.TrackingEnabled);
-            foreach(String navigationProperty in querySettings.NavigationProperties) {
+            foreach (String navigationProperty in querySettings.NavigationProperties) {
                 returnValue = returnValue.Include(navigationProperty);
             }
+
+            if (predicate != null)
+                returnValue = returnValue.Where(predicate);
             return returnValue;
         }
+
 
         /// <summary>
         /// Uses the underlying repository to get a <typeparamref name="TDynamic"/> based on a <typeparamref name="TModel"/> whose values have been projected into an anonymous type

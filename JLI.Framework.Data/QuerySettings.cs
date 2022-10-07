@@ -24,7 +24,7 @@ namespace JLI.Framework.Data {
 
         #region Public Members
 
-        public virtual IList<String> NavigationProperties { get; private set; } = new List<String>();
+        public IList<String> NavigationProperties { get; private set; } = new List<String>();
 
         #endregion Public Members
 
