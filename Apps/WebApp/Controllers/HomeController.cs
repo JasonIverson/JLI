@@ -23,6 +23,10 @@ namespace WebApp.Controllers
             return View();
         }
 
+        public IActionResult Elements() {
+            return this.View();
+        }
+
         public IActionResult Privacy()
         {
             return View();
