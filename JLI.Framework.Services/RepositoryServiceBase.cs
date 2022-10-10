@@ -52,6 +52,11 @@ namespace JLI.Framework.Services {
             return this.InitializeQueryable(querySettings, null);
         }
 
+        /// <summary>
+        /// Uses the <paramref name="queryParameters"/> and <paramref name="predicate"/> to initialize an <see cref="IQueryable{T}"/>
+        /// </summary>
+        /// <param name="queryParameters"></param>
+        /// <returns></returns>
         protected IQueryable<TModel> InitializeQueryable(TQuerySettings querySettings, Expression<Func<TModel, bool>>? predicate) {
             IQueryable<TModel> returnValue = this.Repository.AsQueryable(querySettings.TrackingEnabled);
             foreach (String navigationProperty in querySettings.NavigationProperties) {
