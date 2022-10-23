@@ -20,6 +20,8 @@
 
   <ItemGroup>
     <Compile Include="Data\ApplicationDbContext.cs" />
+    <Compile Include="Data\Models\Account.cs" />
+    <Compile Include="Data\Models\WebAppUser.cs" />
   </ItemGroup>
 
   <ItemGroup>
