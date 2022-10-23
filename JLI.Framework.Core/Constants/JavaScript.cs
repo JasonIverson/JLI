@@ -9,11 +9,13 @@ namespace JLI.Framework.Core.Constants {
     /// <summary>
     /// Constants used for JavaScript related functionality or implementation
     /// </summary>
-    internal static class JavaScript {
+    public static class JavaScript {
 
-        internal static String DoubleQuote => "\"";
+        public static String DoubleQuote => "\"";
 
-        internal static String Null => "null";
+        public static String SingleQuote => "'";
+
+        public static String Null => "null";
 
     }
 
