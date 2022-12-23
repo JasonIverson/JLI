@@ -31,32 +31,4 @@ namespace JLI.Framework.Data.Models {
 
     }
 
-    /*
-    //
-    // TODO:  Hash out logic for this and implement into repository
-    //
-    public interface IModelWithSoftDeletion {
-
-        public DateTime? DeletedDateUtc { get; set; }
-
-        public void SoftDelete();
-
-    }
-
-    //
-    // TODO:  Hash out logic for this and implement into repository
-    //
-    public abstract class ModelWithSoftDeletion : Model, IModelWithSoftDeletion
-      {
-
-        public DateTime? DeletedDateUtc { get; set; }
-
-        public bool IsDeleted => this.DeletedDateUtc.HasValue;
-
-        public virtual void SoftDelete() {
-            this.DeletedDateUtc = DateTime.UtcNow;
-        }
-
-    }
-    */
 }

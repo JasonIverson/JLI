@@ -12,7 +12,7 @@ using System.Linq.Expressions;
 namespace JLI.Framework.Services {
     public abstract class RepositoryServiceBase<TModel, TQuerySettings> : ServiceBase
         where TModel : Data.Models.Model, new()
-        where TQuerySettings : QuerySettings {
+        where TQuerySettings : QuerySettings<TModel> {
 
         #region Constructor(s)
 
@@ -31,43 +31,30 @@ namespace JLI.Framework.Services {
 
         #region Service Methods
 
-        //public async Task<TModel?> GetAsync(Guid id, TQuerySettings querySettings) {
-        //    throw new NotImplementedException();
-        //    IQueryable<TModel> queryable = this.Repository.AsQueryable(querySettings.TrackingEnabled);
-        //    foreach (String include in querySettings.GetIncludes()) {
-        //        queryable = queryable.Include(include);
-        //    }
-        //}
+        public async Task<TModel?> GetAsync(Guid id, TQuerySettings querySettings) {
+            IQueryable<TModel> query = querySettings.Query.Where(x => x.Id == id);
+            TModel? result = await this.GetAsync(query);
+            return result;
+        }
+
+        public virtual TQuerySettings GetQuerySettings(bool trackingEnabled) {
+            TQuerySettings? querySettings;
+            IQueryable<TModel> baseQuery = this.Repository.AsQueryable(trackingEnabled);
+
+            Object[] parameters = new Object[] {
+                trackingEnabled,
+                baseQuery
+            };
+            querySettings = Activator.CreateInstance(typeof(TQuerySettings), parameters) as TQuerySettings;
+            if (querySettings == null)
+                throw new Exception($"Unable to create instance of type {typeof(TQuerySettings).FullName}");
+
+            return querySettings;
+        }
 
         #endregion Service Methods
 
-        #region Utility Methods
-
-        /// <summary>
-        /// Uses the <paramref name="queryParameters"/> to initialize an <see cref="IQueryable{T}"/>
-        /// </summary>
-        /// <param name="queryParameters"></param>
-        /// <returns></returns>
-        protected IQueryable<TModel> InitializeQueryable(TQuerySettings querySettings) {
-            return this.InitializeQueryable(querySettings, null);
-        }
-
-        /// <summary>
-        /// Uses the <paramref name="queryParameters"/> and <paramref name="predicate"/> to initialize an <see cref="IQueryable{T}"/>
-        /// </summary>
-        /// <param name="queryParameters"></param>
-        /// <returns></returns>
-        protected IQueryable<TModel> InitializeQueryable(TQuerySettings querySettings, Expression<Func<TModel, bool>>? predicate) {
-            IQueryable<TModel> returnValue = this.Repository.AsQueryable(querySettings.TrackingEnabled);
-            foreach (String navigationProperty in querySettings.NavigationProperties) {
-                returnValue = returnValue.Include(navigationProperty);
-            }
-
-            if (predicate != null)
-                returnValue = returnValue.Where(predicate);
-            return returnValue;
-        }
-
+        #region Utility Methods        
 
         /// <summary>
         /// Uses the underlying repository to get a <typeparamref name="TDynamic"/> based on a <typeparamref name="TModel"/> whose values have been projected into an anonymous type
@@ -75,7 +62,7 @@ namespace JLI.Framework.Services {
         /// <typeparam name="TDynamic"></typeparam>
         /// <param name="queryable"></param>
         /// <returns></returns>
-        protected async Task<TDynamic?> Get<TDynamic>(IQueryable<TDynamic> queryable) {
+        protected async Task<TDynamic?> GetAsync<TDynamic>(IQueryable<TDynamic> queryable) {
             TDynamic? returnValue = await queryable.FirstOrDefaultAsync();
             return returnValue;
         }
@@ -85,8 +72,8 @@ namespace JLI.Framework.Services {
         /// </summary>
         /// <param name="queryable"></param>
         /// <returns></returns>
-        protected async Task<TModel?> Get(IQueryable<TModel> queryable) {
-            TModel? returnValue = await this.Get<TModel>(queryable);
+        protected async Task<TModel?> GetAsync(IQueryable<TModel> queryable) {
+            TModel? returnValue = await this.GetAsync<TModel>(queryable);
             return returnValue;
         }
 
@@ -96,7 +83,7 @@ namespace JLI.Framework.Services {
         /// <typeparam name="TDynamic"></typeparam>
         /// <param name="queryable"></param>
         /// <returns></returns>
-        protected async Task<List<TDynamic>> List<TDynamic>(IQueryable<TDynamic> queryable) {
+        protected async Task<List<TDynamic>> ListAsync<TDynamic>(IQueryable<TDynamic> queryable) {
             List<TDynamic> returnValue = await queryable.ToListAsync();
             return returnValue;
         }
@@ -106,8 +93,8 @@ namespace JLI.Framework.Services {
         /// </summary>
         /// <param name="queryable"></param>
         /// <returns></returns>
-        protected async Task<List<TModel>> List(IQueryable<TModel> queryable) {
-            List<TModel> returnValue = await this.List<TModel>(queryable);
+        protected async Task<List<TModel>> ListAsync(IQueryable<TModel> queryable) {
+            List<TModel> returnValue = await this.ListAsync<TModel>(queryable);
             return returnValue;
         }
 

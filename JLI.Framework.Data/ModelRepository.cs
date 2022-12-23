@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using JLI.Framework.Data.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace JLI.Framework.Data {
@@ -54,6 +55,8 @@ namespace JLI.Framework.Data {
         public void EntityTracking(TModel model, EntityTrackingTypes entityTrackingTypesType) {
             switch(entityTrackingTypesType) {
                 case EntityTrackingTypes.Add:
+                    if (model.CreatedDateUtc == DateTime.MinValue)
+                        model.CreatedDateUtc = DateTime.UtcNow;
                     this.DbSet.Add(model);
                     break;
                 case EntityTrackingTypes.Update:
@@ -61,7 +64,15 @@ namespace JLI.Framework.Data {
                     this.DbSet.Update(model);
                     break;
                 case EntityTrackingTypes.Delete:
-                    this.DbSet.Remove(model);
+                    SoftDeleteModel? softDeleteModel = model as SoftDeleteModel;
+                    if (softDeleteModel != null) {
+                        softDeleteModel.Delete();
+                        softDeleteModel.DeletedDateUtc = softDeleteModel.UpdatedDateUtc = DateTime.UtcNow;
+                        this.DbSet.Update(model);
+                    }
+                    else {
+                        this.DbSet.Remove(model);
+                    }                    
                     break;
                 case EntityTrackingTypes.Detach:
                     this.DbContext.Entry(model).State = EntityState.Detached;

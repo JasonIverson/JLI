@@ -12,7 +12,7 @@ namespace JLI.Framework.Data.Models {
     public abstract class ModelBase<TKey> : ModelBase
         where TKey : IEquatable<TKey> {
 
-        public virtual TKey Id { get; set; }
+        public virtual TKey Id { get; set; } = default!;
 
     }
 }
