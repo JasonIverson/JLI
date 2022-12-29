@@ -7,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace JLI.Framework.Data {
-    public class QuerySettings<TModel>
+    public abstract class QuerySettings<TModel>
         where TModel : Models.Model {
 
         #region Constructor(s)
