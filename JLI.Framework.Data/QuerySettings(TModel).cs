@@ -8,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace JLI.Framework.Data {
     public class QuerySettings<TModel>
-        where TModel : Models.Model, new() {
+        where TModel : Models.Model {
 
         #region Constructor(s)
 
-        public QuerySettings(bool trackingEnabled, IQueryable<TModel> baseQuery) {
+        internal QuerySettings(bool trackingEnabled, IQueryable<TModel> baseQuery) {
             this.TrackingEnabled = trackingEnabled;
             this.Query = baseQuery;
         }
@@ -23,23 +23,9 @@ namespace JLI.Framework.Data {
 
         public bool TrackingEnabled { get; private set; }
 
-        public IQueryable<TModel> Query { get; protected set; }
+        public IQueryable<TModel> Query { get; private set; }
 
         #endregion Properties
-
-        #region Common Filters
-
-        public QuerySettings<TModel> FilterById(Guid id) {
-            this.Query = this.Query.Where(x => x.Id == id);
-            return this;
-        }
-
-        public QuerySettings<TModel> FilterByIds(IEnumerable<Guid> ids) {
-            this.Query = this.Query.Where(x => ids.Contains(x.Id));
-            return this;
-        }
-
-        #endregion Common Filters
 
     }
 
@@ -90,6 +76,5 @@ namespace JLI.Framework.Data {
     //    }
 
     //}
-
 
 }
