@@ -14,6 +14,12 @@ namespace JLI.Framework.Services {
 
         #region Constructor(s)
 
+        /// <summary>
+        /// Constructs a <see cref="ServiceLoaderAttribute"/>
+        /// </summary>
+        /// <param name="lifetime">Determines the scoping used when registering this service</param>
+        /// <param name="implementingInterface">An optional interface to use as the service implementation</param>
+        /// <exception cref="ArgumentException"></exception>
         public ServiceLoaderAttribute(ServiceLifetimes lifetime, Type? implementingInterface = null)
             : base() {
             this.Lifetime = lifetime;
