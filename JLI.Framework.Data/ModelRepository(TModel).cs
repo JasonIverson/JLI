@@ -92,6 +92,12 @@ namespace JLI.Framework.Data {
             return returnValue;
         }
 
+        /// <summary>
+        /// Returns a <typeparamref name="TQuerySettings"/>, optionally with tracking enabled.
+        /// </summary>
+        /// <param name="trackingEnabled"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
         public TQuerySettings GetQuerySettings(bool trackingEnabled) {
             TQuerySettings? querySettings;
             IQueryable<TModel> internalQuery = this.DbSet.AsQueryable();
