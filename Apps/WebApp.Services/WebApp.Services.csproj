@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\JLI.Framework.Core\JLI.Framework.Core.csproj" />
+    <ProjectReference Include="..\..\JLI.Framework.Data\JLI.Framework.Data.csproj" />
+    <ProjectReference Include="..\..\JLI.Framework.Services\JLI.Framework.Services.csproj" />
+    <ProjectReference Include="..\WebApp.Models\WebApp.Models.csproj" />
+  </ItemGroup>
+
+</Project>
