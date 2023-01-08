@@ -12,8 +12,9 @@ namespace JLI.Framework.Data {
     /// Implementation of a repository for the <typeparamref name="TModel"/>
     /// </summary>
     /// <typeparam name="TModel"></typeparam>
-    public class ModelRepository<TModel> : IModelRepository<TModel>
-        where TModel : Models.Model, new() {
+    public abstract class ModelRepository<TModel, TQuerySettings>
+        where TModel : Models.Model
+        where TQuerySettings : QuerySettings<TModel> {
 
         #region Fields
 
@@ -34,18 +35,6 @@ namespace JLI.Framework.Data {
         #endregion Constructor(s)
 
         #region Public Members
-
-        /// <summary>
-        /// Allows to query for a the <typeparamref name="TModel"/>
-        /// </summary>
-        /// <param name="trackingEnabled"></param>
-        /// <returns></returns>
-        public IQueryable<TModel> AsQueryable(bool trackingEnabled) {
-            IQueryable<TModel> returnValue = this.DbSet.AsQueryable();
-            if (!trackingEnabled)
-                returnValue = returnValue.AsNoTracking();
-            return returnValue;
-        }
 
         /// <summary>
         /// Configures the underlying data store to track the <paramref name="model"/> according to the <paramref name="changeTrackingType"/> parameter provided.
@@ -80,6 +69,71 @@ namespace JLI.Framework.Data {
                 default:
                     throw new NotImplementedException();
             }
+        }
+
+        /// <summary>
+        /// Returns a single <typeparamref name="TDynamic"/> retrieved as a result of the <paramref name="query"/> provided as an argument.
+        /// </summary>
+        /// <typeparam name="TDynamic"></typeparam>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public async Task<TDynamic?> GetAsync<TDynamic>(IQueryable<TDynamic?> query) {
+            TDynamic? returnValue = await query.FirstOrDefaultAsync();
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Returns a single <typeparamref name="TModel"/> retrieved as a result of the <paramref name="querySettings"/> provided as an argument.
+        /// </summary>
+        /// <param name="querySettings"></param>
+        /// <returns></returns>
+        public async Task<TModel?> GetAsync(TQuerySettings querySettings) {
+            TModel? returnValue = await this.GetAsync(querySettings.Query);
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Returns a <typeparamref name="TQuerySettings"/>, optionally with tracking enabled.
+        /// </summary>
+        /// <param name="trackingEnabled"></param>
+        /// <returns></returns>
+        /// <exception cref="Exception"></exception>
+        public TQuerySettings GetQuerySettings(bool trackingEnabled) {
+            TQuerySettings? querySettings;
+            IQueryable<TModel> internalQuery = this.DbSet.AsQueryable();
+            if (trackingEnabled)
+                internalQuery = internalQuery.AsNoTracking();
+
+            Object[] parameters = new Object[] {
+                trackingEnabled,
+                internalQuery
+            };
+            querySettings = Activator.CreateInstance(typeof(TQuerySettings), parameters) as TQuerySettings;
+            if (querySettings == null)
+                throw new Exception($"Unable to create instance of type {typeof(TQuerySettings).FullName}");
+
+            return querySettings;
+        }
+
+        /// <summary>
+        /// Returns a List of <typeparamref name="TDynamic"/>s retrieved as a result of the <paramref name="query"/> provided as an argument.
+        /// </summary>
+        /// <typeparam name="TDynamic"></typeparam>
+        /// <param name="query"></param>
+        /// <returns></returns>
+        public async Task<List<TDynamic>> ListAsync<TDynamic>(IQueryable<TDynamic> query) {
+            List<TDynamic> returnValue = await query.ToListAsync();
+            return returnValue;
+        }
+
+        /// <summary>
+        /// Returns a List of <typeparamref name="TModel"/>s retrieved as a result of the <paramref name="querySettings"/> provided as an argument.
+        /// </summary>
+        /// <param name="querySettings"></param>
+        /// <returns></returns>
+        public async Task<List<TModel>> ListAsync(TQuerySettings querySettions) {
+            List<TModel> returnValue = await this.ListAsync(querySettions.Query);
+            return returnValue;
         }
 
         /// <summary>
