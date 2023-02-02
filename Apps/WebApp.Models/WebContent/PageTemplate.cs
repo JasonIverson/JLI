@@ -1,4 +1,5 @@
-﻿using System;
+﻿using JLI.Framework.Data.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,11 +8,11 @@ using WebApp.Models.WebContent.Resources;
 
 namespace WebApp.Models.WebContent {
 
-    public class PageTemplate {
+    public class PageTemplate : SoftDeleteModel {
 
         public ImageResource? FavIcon { get; set; }
 
-        public List<InjectedContent> EmbeddedContent { get; set; } = new List<InjectedContent>();
+        public InjectedContentList InjectedContent { get; set; } = new InjectedContentList();
 
         public String CharSet => "utf-8";
 

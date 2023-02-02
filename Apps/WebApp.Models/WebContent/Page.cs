@@ -1,4 +1,5 @@
 ﻿using JLI.Framework.Data;
+using JLI.Framework.Data.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -9,7 +10,7 @@ using WebApp.Models.WebContent.Resources;
 
 namespace WebApp.Models.WebContent {
     
-    public class Page {
+    public class Page : SoftDeleteModel {
 
         [Required, FormalNameLength]
         public String Name { get; set; } = "New Page";
@@ -20,7 +21,7 @@ namespace WebApp.Models.WebContent {
 
         public PageMetadata Metadata { get; set; } = new PageMetadata();
 
-        public List<InjectedContent> EmbeddedContent { get; set; } = new List<InjectedContent>();
+        public InjectedContentList InjectedContent { get; set; } = new InjectedContentList();
 
     }
 }
