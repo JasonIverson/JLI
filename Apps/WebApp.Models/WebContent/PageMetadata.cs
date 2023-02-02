@@ -16,7 +16,7 @@ namespace WebApp.Models.WebContent {
         public String Description { get; set; } = null!;
 
         [Required, StringLength(512)]
-        public String Keywords { get; set; } = null!;        
+        public String Keywords { get; set; } = null!;
 
     }
 }

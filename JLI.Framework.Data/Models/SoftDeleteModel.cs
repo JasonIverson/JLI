@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace JLI.Framework.Data.Models {
 
-    public abstract class SoftDeleteModel : Model {
+    public abstract class SoftDeleteModel : Model, ISoftDeleteModel {
 
         public DateTime? DeletedDateUtc { get; set; }
 
