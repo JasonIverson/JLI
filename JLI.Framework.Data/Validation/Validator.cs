@@ -87,6 +87,20 @@ namespace JLI.Framework.Data {
             return result;
         }
 
+        /// <summary>
+        /// Determines whether the <paramref name="hexColor"/> is in the form of a valid 6 character RGB hexidecimal color.
+        /// </summary>
+        /// <param name="hexColor"></param>
+        /// <returns></returns>
+        public static bool IsValidHexColor(String? hexColor) {
+            // https://stackoverflow.com/a/1636354
+            if (String.IsNullOrWhiteSpace(hexColor))
+                return false;
+
+            bool result = Regex.IsMatch(hexColor, @"^(?:[0-9a-fA-F]{3}){1,2}$", RegexOptions.None, Validator.RegexTimeout);
+            return result;
+        }
+
     }
 
 }

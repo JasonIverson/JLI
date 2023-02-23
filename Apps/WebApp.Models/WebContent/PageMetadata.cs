@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using WebApp.Models.WebContent.Resources;
 
 namespace WebApp.Models.WebContent {
-    public  class PageMetadata {
+    public class PageMetadata {
 
         [Required, StringLength(128)]
         public String Title { get; set; } = null!;

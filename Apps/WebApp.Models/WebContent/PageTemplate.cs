@@ -14,11 +14,7 @@ namespace WebApp.Models.WebContent {
 
         public InjectedContentList InjectedContent { get; set; } = new InjectedContentList();
 
-        public String CharSet => "utf-8";
-
-        public String Language => "en-US";
-
-        public String ViewPort => "width=device-width, initial-scale=1.0";
+        public PageTemplateMetadata Metadata { get; set; } = new PageTemplateMetadata();
 
     }
 }
