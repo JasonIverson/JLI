@@ -8,9 +8,9 @@ namespace WebApp.Models.WebContent.Design {
 
     public class FontConfiguration {
 
-        public byte Size { get; set; }
+        public byte Size { get; set; } = 16;
 
-        public String Name { get; set; } = null!;
+        public String Name { get; set; } = "Roboto";
 
         public FontWeights Weight { get; set; } = FontWeights.Normal;
 
