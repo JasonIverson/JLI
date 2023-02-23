@@ -20,17 +20,9 @@ namespace WebApp.Models.WebContent {
         [HexColorLength]
         public String ColorRegularText { get; set; } = null!;
 
-        [HexColorLength]
-        public String ColorAlertBackground { get; set; } = null!;
+        public Design.ColorPairing AlertColors { get; set; } = null!;
 
-        [HexColorLength]
-        public String ColorAlertForeground { get; set; } = null!;
-
-        [HexColorLength]
-        public String ColorErrorBackground { get; set; } = null!;
-
-        [HexColorLength]
-        public String ColorErrorForeground { get; set; } = null!;
+        public Design.ColorPairing ErrorColors { get; set; } = null!;
 
     }
 }
