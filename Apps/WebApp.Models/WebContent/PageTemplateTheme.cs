@@ -20,6 +20,14 @@ namespace WebApp.Models.WebContent {
         [HexColorLength]
         public String ColorRegularText { get; set; } = null!;
 
+        public Design.FontConfiguration FontRegularText { get; set; } = null!;
+
+        public Design.FontConfiguration FontHeading { get; set; } = null!;
+
+        public Design.FontConfiguration FontSubHeading { get; set; } = null!;
+
+        public Design.FontConfiguration FontCaptions { get; set; } = null!;
+
         public Design.ColorPairing AlertColors { get; set; } = null!;
 
         public Design.ColorPairing ErrorColors { get; set; } = null!;
