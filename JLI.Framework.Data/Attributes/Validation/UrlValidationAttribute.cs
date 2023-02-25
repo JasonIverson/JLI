@@ -13,8 +13,8 @@ namespace JLI.Framework.Data {
 
         #region Constructor(s)
 
-        public UrlValidationAttribute()
-            : base(Validator.IsValidUrl) { }
+        public UrlValidationAttribute(bool allowNullOrEmptyString)
+            : base(Validator.IsValidUrl, allowNullOrEmptyString) { }
 
         #endregion Constructor(s)
 

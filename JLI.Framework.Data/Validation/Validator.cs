@@ -88,7 +88,7 @@ namespace JLI.Framework.Data {
         }
 
         /// <summary>
-        /// Determines whether the <paramref name="hexColor"/> is in the form of a valid 6 character RGB hexidecimal color.
+        /// Determines whether the <paramref name="hexColor"/> is in the form of a valid 3 or 6 character RGB hexidecimal color.
         /// </summary>
         /// <param name="hexColor"></param>
         /// <returns></returns>

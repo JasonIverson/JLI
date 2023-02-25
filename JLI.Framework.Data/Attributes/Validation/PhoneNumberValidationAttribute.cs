@@ -14,8 +14,8 @@ namespace JLI.Framework.Data {
 
         #region Constructor(s)
 
-        public PhoneNumberValidationAttribute()
-            : base(Validator.IsValidPhoneNumber) { }
+        public PhoneNumberValidationAttribute(bool allowNullOrEmptyString)
+            : base(Validator.IsValidPhoneNumber, allowNullOrEmptyString) { }
 
         #endregion Constructor(s)
 

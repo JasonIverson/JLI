@@ -13,8 +13,8 @@ namespace JLI.Framework.Data {
 
         #region Constructor(s)
 
-        public EmailAddressValidationAttribute()
-            : base(Validator.IsValidEmailAddress) { }
+        public EmailAddressValidationAttribute(bool allowNullOrEmptyString)
+            : base(Validator.IsValidEmailAddress, allowNullOrEmptyString) { }
 
         #endregion Constructor(s)
 
