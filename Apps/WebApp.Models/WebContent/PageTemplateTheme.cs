@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using JLI.Framework.Data;
+﻿using JLI.Framework.Data;
 
 namespace WebApp.Models.WebContent {
     public class PageTemplateTheme {

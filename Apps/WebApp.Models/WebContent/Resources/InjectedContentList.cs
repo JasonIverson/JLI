@@ -1,11 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace WebApp.Models.WebContent.Resources {
+﻿namespace WebApp.Models.WebContent.Resources {
 
     // TODO:  Update object model so InjectedContent can reference both PageTemplate and Page
     public class InjectedContentList : List<InjectedContent> {
