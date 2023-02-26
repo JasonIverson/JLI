@@ -2,6 +2,7 @@
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
 using JLI.Framework.Core;
+using JLI.Framework.Data;
 
 namespace ConsoleApp {
     class Program {
@@ -11,6 +12,14 @@ namespace ConsoleApp {
                 .AddJsonFile("appsettings.json", false, true)
                 .AddEnvironmentVariables()
                 .Build();
+
+
+
+            String email = Console.ReadLine();
+            Console.WriteLine($"{email} is a valid email addres:  {Validator.IsValidEmailAddress(email)}");
+            Console.ReadLine();
+            return;
+
 
             String tempValue = "jas0n";
             Console.WriteLine($"{tempValue}:  {tempValue.ToDigits()}");

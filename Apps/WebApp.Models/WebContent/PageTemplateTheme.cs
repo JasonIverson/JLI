@@ -1,6 +1,7 @@
 ﻿using JLI.Framework.Data;
 
 namespace WebApp.Models.WebContent {
+
     public class PageTemplateTheme {
 
         [HexColorLength]

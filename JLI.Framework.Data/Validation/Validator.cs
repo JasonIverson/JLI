@@ -1,4 +1,5 @@
-﻿using System.Globalization;
+﻿using JLI.Framework.Data.Attributes.DataAnnotations;
+using System.Globalization;
 using System.Text.RegularExpressions;
 
 namespace JLI.Framework.Data {
@@ -62,7 +63,8 @@ namespace JLI.Framework.Data {
             if (String.IsNullOrWhiteSpace(phoneNumber))
                 return false;
 
-            bool result = Regex.IsMatch(phoneNumber, @"^\d{10}$", RegexOptions.None, Validator.RegexTimeout) &&
+            String pattern = $"^\\d{{{PhoneNumberLengthAttribute.LENGTH}}}$";
+            bool result = Regex.IsMatch(phoneNumber, pattern, RegexOptions.None, Validator.RegexTimeout) &&
                 !phoneNumber.StartsWith("1"); // US area codes do not begin with a 1
             return result;
         }

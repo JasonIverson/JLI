@@ -1,5 +1,7 @@
-﻿namespace JLI.Framework.Data {
-    public class FormalNameLengthAttribute : System.ComponentModel.DataAnnotations.StringLengthAttribute {
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace JLI.Framework.Data {
+    public class FormalNameLengthAttribute : StringLengthAttribute {
 
         #region Constructor(s)
 

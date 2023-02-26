@@ -1,6 +1,8 @@
-﻿namespace JLI.Framework.Data {
+﻿using System.ComponentModel.DataAnnotations;
     
-    public class UrlLengthAttribute : System.ComponentModel.DataAnnotations.StringLengthAttribute {
+namespace JLI.Framework.Data {
+    
+    public class UrlLengthAttribute : StringLengthAttribute {
 
         #region Constructor(s)
 
