@@ -17,6 +17,9 @@ namespace WebApp.Models.Profiles {
         [Required, FormalNameLength]
         public String LastName { get; set; } = null!;
 
+        [FormalNameLength]
+        public String? Title { get; set; }
+
         [Required, EmailLength, EmailAddressValidation(false)]
         public String Email { get; set; } = null!;
 

@@ -8,6 +8,10 @@ namespace WebApp.Models.Profiles {
 
         public Profile? Profile { get; set; }
 
+        public SocialMediaPlatforms Platform { get; set; }
+
+        public String UserName { get; set; } = null!;
+
     }
 
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace WebApp.Models.Profiles {
 
-    public enum SocialMediaPlatforms {
+    public enum SocialMediaPlatforms : byte {
 
         Facebook = 0,
 

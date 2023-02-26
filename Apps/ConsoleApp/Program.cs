@@ -13,14 +13,18 @@ namespace ConsoleApp {
                 .AddEnvironmentVariables()
                 .Build();
 
-
-
-            String email = Console.ReadLine();
-            Console.WriteLine($"{email} is a valid email addres:  {Validator.IsValidEmailAddress(email)}");
+            Console.WriteLine($"{new String('-', 40)}");
+            Console.WriteLine($"Email Validation");
+            Console.WriteLine($"{new String('-', 40)}");
+            Console.Write($"Type an email address:  ");
+            String? email = Console.ReadLine();
+            Console.WriteLine($"{email} is a valid email address:  {Validator.IsValidEmailAddress(email)}");
+            Console.WriteLine("Press Enter\r\n");
             Console.ReadLine();
-            return;
 
-
+            Console.WriteLine($"{new String('-', 40)}");
+            Console.WriteLine("ToDigits()");
+            Console.WriteLine($"{new String('-', 40)}");
             String tempValue = "jas0n";
             Console.WriteLine($"{tempValue}:  {tempValue.ToDigits()}");
 
@@ -32,6 +36,7 @@ namespace ConsoleApp {
 
             tempValue = "1a2b3c4d5e6f7g8h9";
             Console.WriteLine($"{tempValue}:  {tempValue.ToDigits()}");
+            Console.WriteLine();
 
             Settings settings = config.GetRequiredSection("Settings").Get<Settings>();
 
