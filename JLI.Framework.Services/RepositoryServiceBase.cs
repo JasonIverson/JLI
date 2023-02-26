@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
-using JLI.Framework.Data;
-using System.Linq.Expressions;
+﻿using JLI.Framework.Data;
 
 namespace JLI.Framework.Services {
     public abstract class RepositoryServiceBase<TModel, TQuerySettings, TModelRepository> : ServiceBase

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JLI.Framework.Services {
+﻿namespace JLI.Framework.Services {
 
     /// <summary>
     /// An attribute used to decorate services with in order to have them registered in a <see cref="Microsoft.Extensions.DependencyInjection.IServiceCollection"/> without explicitly having to register each service.

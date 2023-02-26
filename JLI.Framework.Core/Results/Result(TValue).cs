@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JLI.Framework.Core {
+﻿namespace JLI.Framework.Core {
 
     /// <summary>
     /// Represents the result of some action being taken, which also includes a return value for successful results.

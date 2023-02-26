@@ -1,12 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-
-namespace JLI.Framework.Services {
+﻿namespace JLI.Framework.Services {
 
     /// <summary>
     /// Base class for Services

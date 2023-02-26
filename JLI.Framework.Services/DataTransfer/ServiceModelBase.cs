@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace JLI.Framework.Services {
+﻿namespace JLI.Framework.Services {
 
     /// <summary>
     /// Represents a subset (or entire set) of data properties which comprise a <typeparamref name="TModel"/> (and also requires additional supporting data) for purposes of persistance to, and reading from, a repository.
