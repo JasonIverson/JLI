@@ -12,9 +12,11 @@ namespace WebApp.Models.Profiles {
         public Profile? Profile { get; set; }
 
         [Required, FormalNameLength]
+        [Display(Name = "First Name")]
         public String FirstName { get; set; } = null!;
 
         [Required, FormalNameLength]
+        [Display(Name = "Last Name")]
         public String LastName { get; set; } = null!;
 
         [FormalNameLength]
@@ -24,7 +26,12 @@ namespace WebApp.Models.Profiles {
         public String Email { get; set; } = null!;
 
         [Required, PhoneNumberLength, PhoneNumberValidation(false)]
+        [Display(Name = "Phone Number")]
         public String PhoneNumber { get; set; } = null!;
+
+        public Guid? AddressId { get; set; }
+
+        public Common.Address? Address { get; set; } = null;
         
     }
 

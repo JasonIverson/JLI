@@ -13,6 +13,7 @@ namespace WebApp.Models.WebContent.Design {
 
         public FontWeights Weight { get; set; } = FontWeights.Normal;
 
+        [Display(Name = "Line Height")]
         public LineHeights LineHeight { get; set; } = LineHeights.OneHundredThrityThree;
 
     }

@@ -1,4 +1,6 @@
-﻿namespace WebApp.Models.WebContent.Design {
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace WebApp.Models.WebContent.Design {
 
     /// <summary>
     /// Denotes the weight of the font
@@ -16,8 +18,10 @@
 
     public enum LineHeights : byte {
 
+        [Display(Name = "150%")]
         OneHundredFifty = 0,
 
+        [Display(Name = "133%")]
         OneHundredThrityThree = 1
 
     }
