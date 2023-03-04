@@ -22,8 +22,7 @@ namespace WebApp.Models.WebContent {
         public String ColorRegularText { get; set; } = "293132";
 
         [Display(Name = "Font (Regular Text)")]
-        public Design.FontConfiguration FontRegularText { get; set; } = 
-            new Design.FontConfiguration();
+        public Design.FontConfiguration FontRegularText { get; set; } = new();
 
         [Display(Name = "Font (Headings)")]
         public Design.FontConfiguration FontHeading { get; set; } = 

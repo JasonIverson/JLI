@@ -15,15 +15,15 @@ namespace WebApp.Models.WebContent {
         public ImageResource? FavIcon { get; set; }
 
         [Display(Name = "Injected Content")]
-        public InjectedContentList InjectedContent { get; set; } = new InjectedContentList();
+        public InjectedContentList InjectedContent { get; set; } = new();
 
-        public PageTemplateMetadata Metadata { get; set; } = new PageTemplateMetadata();
+        public PageTemplateMetadata Metadata { get; set; } = new();
 
-        public PageTemplateTheme Theme { get; set; } = new PageTemplateTheme();
+        public PageTemplateTheme Theme { get; set; } = new();
 
-        public PageTemplateHeader Header { get; set; } = new PageTemplateHeader();
+        public PageTemplateHeader Header { get; set; } = new();
 
-        public PageTemplateFooter Footer { get; set; } = new PageTemplateFooter();
+        public PageTemplateFooter Footer { get; set; } = new();
 
     }
 }

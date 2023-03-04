@@ -3,6 +3,7 @@ using JLI.Framework.Data.Models;
 using System.ComponentModel.DataAnnotations;
 using WebApp.Models.Profiles;
 using WebApp.Models.WebContent.Resources;
+using WebApp.Models.WebContent.Sections;
 
 namespace WebApp.Models.WebContent {
     
@@ -15,13 +16,17 @@ namespace WebApp.Models.WebContent {
         [Required, FormalNameLength]
         public String Name { get; set; } = "New Page";
 
-        public Guid TemplateId { get; set; } = Guid.Empty!;
+        public PageTypes Type { get; set; } = PageTypes.Custom;
 
-        public PageTemplate Template { get; set; } = null!;
+        //public Guid TemplateId { get; set; } = Guid.Empty!;
 
-        public PageMetadata Metadata { get; set; } = new PageMetadata();
+        //public PageTemplate Template { get; set; } = null!;
 
-        public InjectedContentList InjectedContent { get; set; } = new InjectedContentList();
-        
+        public PageMetadata Metadata { get; set; } = new();
+
+        public InjectedContentList InjectedContent { get; set; } = new();
+
+        public List<SectionBase> Body { get; set; } = new();
+
     }
 }

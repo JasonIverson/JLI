@@ -10,8 +10,7 @@ namespace WebApp.Models.Profiles {
         public String Name { get; set; } = null!;
 
         [Display(Name = "Social Media Accounts")]
-        public List<SocialMediaAccount> SocialMediaAccounts { get; set;}
-            = new List<SocialMediaAccount>();
+        public List<SocialMediaAccount> SocialMediaAccounts { get; set; } = new();
 
         public Guid PrimaryContactId { get; set; }
 
