@@ -1,9 +1,15 @@
-﻿<!DOCTYPE html>
-<html lang="en">
+﻿@model (WebApp.Models.WebContent.PageTemplate, WebApp.Models.WebContent.Page)
+@{
+    WebApp.Models.WebContent.PageTemplate pageTemplate = this.Model.Item1;
+    WebApp.Models.WebContent.Page page = this.Model.Item2;
+}
+<!DOCTYPE html>
+<html lang="@pageTemplate.Metadata.Language">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - WebApp</title>
+    <meta charset="@pageTemplate.Metadata.CharSet" />
+    <meta name="viewport" content="@pageTemplate.Metadata.Viewport" />
+    <meta name="theme-color" content="#@pageTemplate.Theme.ColorPrimary" />
+    <title>@(page.Metadata.Title) - @pageTemplate.Profile!.Name</title>
     <link rel="stylesheet" href="~/css/default.min.css" asp-append-version="true" />
     <script>
     </script>
