@@ -32,22 +32,22 @@ namespace JLI.Framework.Data {
         #region Public Members
 
         /// <summary>
-        /// Configures the underlying data store to track the <paramref name="model"/> according to the <paramref name="changeTrackingType"/> parameter provided.
+        /// Configures the underlying data store to track the <paramref name="model"/> according to the <paramref name="modelTrackingType"/> parameter provided.
         /// </summary>
         /// <param name="model"></param>
         /// <param name="changeTrackingType"></param>
-        public void EntityTracking(TModel model, EntityTrackingTypes entityTrackingTypesType) {
-            switch(entityTrackingTypesType) {
-                case EntityTrackingTypes.Add:
+        public void EntityTracking(TModel model, ModelTrackingTypes modelTrackingType) {
+            switch(modelTrackingType) {
+                case ModelTrackingTypes.Add:
                     if (model.CreatedDateUtc == DateTime.MinValue)
                         model.CreatedDateUtc = DateTime.UtcNow;
                     this.DbSet.Add(model);
                     break;
-                case EntityTrackingTypes.Update:
+                case ModelTrackingTypes.Update:
                     model.UpdatedDateUtc = DateTime.UtcNow;
                     this.DbSet.Update(model);
                     break;
-                case EntityTrackingTypes.Delete:
+                case ModelTrackingTypes.Delete:
                     SoftDeleteModel? softDeleteModel = model as SoftDeleteModel;
                     if (softDeleteModel != null) {
                         softDeleteModel.Delete();
@@ -58,7 +58,7 @@ namespace JLI.Framework.Data {
                         this.DbSet.Remove(model);
                     }                    
                     break;
-                case EntityTrackingTypes.Detach:
+                case ModelTrackingTypes.Detach:
                     this.DbContext.Entry(model).State = EntityState.Detached;
                     break;
                 default:
@@ -96,7 +96,7 @@ namespace JLI.Framework.Data {
         public TQuerySettings GetQuerySettings(bool trackingEnabled) {
             TQuerySettings? querySettings;
             IQueryable<TModel> internalQuery = this.DbSet.AsQueryable();
-            if (trackingEnabled)
+            if (!trackingEnabled)
                 internalQuery = internalQuery.AsNoTracking();
 
             Object[] parameters = new Object[] {
