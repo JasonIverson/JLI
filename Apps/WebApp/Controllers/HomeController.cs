@@ -75,10 +75,12 @@ namespace WebApp.Controllers {
             return (pageTemplate, page);
         }
 
+        [Route("/")]
         public IActionResult Index() {
             return this.View(this.GetObject());
         }
 
+        [Route("/elements")]
         public IActionResult Elements() {
             return this.View(this.GetObject());
         }
