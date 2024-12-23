@@ -3,11 +3,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {
 
-    public class SocialMediaAccount : OrderedModel, IProfileChild {
+    public class SocialMediaAccount : OrderedModel /*, IProfileChild*/ {
 
-        public Guid ProfileId { get; set; }
+        //public Guid ProfileId { get; set; }
 
-        public Profile? Profile { get; set; }
+        //public Profile? Profile { get; set; }
 
         public SocialMediaPlatforms Platform { get; set; }
 

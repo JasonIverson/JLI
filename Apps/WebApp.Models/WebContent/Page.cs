@@ -7,11 +7,11 @@ using WebApp.Models.WebContent.Sections;
 
 namespace WebApp.Models.WebContent {
     
-    public class Page : SoftDeleteModel, IProfileChild {
+    public class Page : SoftDeleteModel /*, IProfileChild*/ {
 
-        public Guid ProfileId { get; set; }
+        //public Guid ProfileId { get; set; }
 
-        public Profile? Profile { get; set; }
+        //public Profile? Profile { get; set; }
 
         [Required, FormalNameLength]
         public String Name { get; set; } = "New Page";

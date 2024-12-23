@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {
     
-    public class Contact : SoftDeleteModel, IProfileChild {
+    public class Contact : SoftDeleteModel /*, IProfileChild*/ {
 
-        public Guid ProfileId { get; set; }
+        //public Guid ProfileId { get; set; }
 
-        public Profile? Profile { get; set; }
+        //public Profile? Profile { get; set; }
 
         [Required, FormalNameLength]
         [Display(Name = "Given Name")]

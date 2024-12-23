@@ -5,11 +5,11 @@ using WebApp.Models.WebContent.Resources;
 
 namespace WebApp.Models.WebContent {
 
-    public class PageTemplate : SoftDeleteModel, IProfileChild {
+    public class PageTemplate : SoftDeleteModel /*, IProfileChild*/ {
 
-        public Guid ProfileId { get; set; }
+        //public Guid ProfileId { get; set; }
 
-        public Profile? Profile { get; set; }
+        //public Profile? Profile { get; set; }
 
         [Display(Name = "Favorite Icon")]
         public ImageResource? FavIcon { get; set; }
