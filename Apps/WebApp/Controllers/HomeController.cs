@@ -31,8 +31,8 @@ namespace WebApp.Controllers {
                     Address = new() {
                         Id = Guid.NewGuid(),
                         Line1 = "PO Box 277298",
-                        City = "Sacramento",
-                        State = States.CALIFORNIA.Abbreviation,
+                        Locality = "Sacramento",
+                        Region = States.CALIFORNIA.Abbreviation,
                         PostalCode = "95827"
                     },
                     FirstName = "Jason",
@@ -42,11 +42,11 @@ namespace WebApp.Controllers {
                     CreatedDateUtc = DateTime.UtcNow
                 },
                 SocialMediaAccounts = new() {
-                    new SocialMediaAccount() {
-                        Platform = SocialMediaPlatforms.Twitter,
-                        Order = 0,
-                        UserName = "JasonAtSBWP"
-                    },
+                    //new SocialMediaAccount() {
+                    //    Platform = SocialMediaPlatforms.Twitter,
+                    //    Order = 0,
+                    //    UserName = "JasonAtSBWP"
+                    //},
                     new SocialMediaAccount() {
                         Platform = SocialMediaPlatforms.LinkedIn,
                         Order = 1,

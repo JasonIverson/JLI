@@ -7,7 +7,7 @@ namespace JLI.Framework.Data {
         #region Constructor(s)
 
         public AddressPostalCodeLengthAttribute()
-            : base(9) { }
+            : base(32) { }
 
         #endregion Constructor(s)
 

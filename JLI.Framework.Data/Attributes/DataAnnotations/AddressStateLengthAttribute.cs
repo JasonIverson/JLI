@@ -1,12 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace JLI.Framework.Data {
-    public class AddressStateLengthAttribute : StringLengthAttribute {
+    public class AddressRegionLengthAttribute : StringLengthAttribute {
 
         #region Constructor(s)
 
-        public AddressStateLengthAttribute()
-            : base(2) { }
+        public AddressRegionLengthAttribute()
+            : base(64) { }
 
         #endregion Constructor(s)
 
