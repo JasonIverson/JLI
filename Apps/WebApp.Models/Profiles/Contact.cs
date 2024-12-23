@@ -12,12 +12,12 @@ namespace WebApp.Models.Profiles {
         public Profile? Profile { get; set; }
 
         [Required, FormalNameLength]
-        [Display(Name = "First Name")]
-        public String FirstName { get; set; } = null!;
+        [Display(Name = "Given Name")]
+        public String GivenName { get; set; } = null!;
 
         [Required, FormalNameLength]
-        [Display(Name = "Last Name")]
-        public String LastName { get; set; } = null!;
+        [Display(Name = "Family Name")]
+        public String FamilyName { get; set; } = null!;
 
         [FormalNameLength]
         public String? Title { get; set; }
