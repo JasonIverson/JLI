@@ -9,10 +9,10 @@ namespace WebApp.Models.Profiles {
         [Required, FormalNameLength]
         public String Name { get; set; } = null!;
 
-        public Guid PrimaryContactId { get; set; }
+        // public Guid PrimaryContactId { get; set; }
 
         [Display(Name = "Primary Contact")]
-        public Contact PrimaryContact { get; set; } = null!;
+        public Contact<Profile> PrimaryContact { get; set; } = null!;
 
         [Display(Name = "Social Media Accounts")]
         public List<SocialMediaAccount> SocialMediaAccounts { get; set; } = new();

@@ -5,7 +5,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {
     
-    public class Contact : SoftDeleteModel /*, IProfileChild*/ {
+
+    public class Contact<TContainer> : ContactInfo {
+
+        public TContainer? Container { get; set; }
+
+    }
+
+    public abstract class ContactInfo : SoftDeleteModel /*, IProfileChild*/ {
 
         //public Guid ProfileId { get; set; }
 
