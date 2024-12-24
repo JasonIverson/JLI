@@ -25,22 +25,22 @@ namespace WebApp.Controllers {
                 Id = Guid.NewGuid(),
                 CreatedDateUtc = DateTime.UtcNow,
                 Name = "Jason Iverson Consulting",
-                PrimaryContact = new() {
-                    Id = Guid.NewGuid(),
-                    Email = "hello@jason-iverson.com",
-                    Address = new() {
-                        Id = Guid.NewGuid(),
-                        Line1 = "PO Box 277298",
-                        Locality = "Sacramento",
-                        Region = States.CALIFORNIA.Abbreviation,
-                        PostalCode = "95827"
-                    },
-                    GivenName = "Jason",
-                    FamilyName = "Iverson",
-                    PhoneNumber = "9166680068",
-                    Title = "Proprietor",
-                    CreatedDateUtc = DateTime.UtcNow
-                },
+                //PrimaryContact = new() {
+                //    Id = Guid.NewGuid(),
+                //    Email = "hello@jason-iverson.com",
+                //    //Address = new() {
+                //    //    Id = Guid.NewGuid(),
+                //    //    Line1 = "PO Box 277298",
+                //    //    Locality = "Sacramento",
+                //    //    Region = States.CALIFORNIA.Abbreviation,
+                //    //    PostalCode = "95827"
+                //    //},
+                //    GivenName = "Jason",
+                //    FamilyName = "Iverson",
+                //    PhoneNumber = "9166680068",
+                //    Title = "Proprietor",
+                //    CreatedDateUtc = DateTime.UtcNow
+                //},
                 SocialMediaAccounts = new() {
                     //new SocialMediaAccount() {
                     //    Platform = SocialMediaPlatforms.Twitter,
