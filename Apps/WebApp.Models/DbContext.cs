@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApp.Models.Common;
+using WebApp.Models.Profiles;
 
 namespace WebApp.Models {
 
@@ -8,7 +9,18 @@ namespace WebApp.Models {
             : base(options) {
         }
 
-        // public DbSet<Address> Addresses { get; set; }
+        protected override void OnModelCreating(ModelBuilder builder) {
+            base.OnModelCreating(builder);
+
+            builder.Entity<Profile>()
+                .HasMany(x => x.SocialMediaAccounts)
+                .WithOne(x => x.Profile)
+                .IsRequired();
+        }
+
+        public DbSet<Profile> Profiles { get; set; }
+
+        public DbSet<SocialMediaAccount> SocialMediaAccounts { get; set; }
 
     }
 

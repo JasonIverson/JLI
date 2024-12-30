@@ -5,18 +5,8 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {
     
-
-    public class Contact<TContainer> : ContactInfo {
-
-        public TContainer? Container { get; set; }
-
-    }
-
-    public abstract class ContactInfo : SoftDeleteModel /*, IProfileChild*/ {
-
-        //public Guid ProfileId { get; set; }
-
-        //public Profile? Profile { get; set; }
+    public abstract class Contact : SoftDeleteModel /*, IProfileChild*/ 
+    {
 
         [Required, FormalNameLength]
         [Display(Name = "Given Name")]
@@ -32,13 +22,9 @@ namespace WebApp.Models.Profiles {
         [Required, EmailLength, EmailAddressValidation(false)]
         public String Email { get; set; } = null!;
 
-        [Required, PhoneNumberLength, PhoneNumberValidation(false)]
+        [Required, PhoneNumberLength, PhoneNumberValidation(true)]
         [Display(Name = "Phone Number")]
-        public String PhoneNumber { get; set; } = null!;
-
-        public Guid? AddressId { get; set; }
-
-        public Common.Address? Address { get; set; } = null;
+        public String? PhoneNumber { get; set; }
         
     }
 
