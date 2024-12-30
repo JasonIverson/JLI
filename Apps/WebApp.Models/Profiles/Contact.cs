@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {
 
-    public abstract class Contact : SoftDeleteModel {
+    public class Contact : SoftDeleteModel {
 
         [Required, FormalNameLength]
         [Display(Name = "Given Name")]
@@ -21,7 +21,7 @@ namespace WebApp.Models.Profiles {
         [Required, EmailLength, EmailAddressValidation(false)]
         public String Email { get; set; } = null!;
 
-        [Required, PhoneNumberLength, PhoneNumberValidation(true)]
+        [PhoneNumberLength, PhoneNumberValidation(true)]
         [Display(Name = "Phone Number")]
         public String? PhoneNumber { get; set; }
 
