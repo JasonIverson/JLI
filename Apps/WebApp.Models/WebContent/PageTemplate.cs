@@ -7,8 +7,8 @@ namespace WebApp.Models.WebContent {
 
     public class PageTemplate : SoftDeleteModel /*, IProfileChild*/ {
 
-        [Display(Name = "Favorite Icon")]
-        public ImageResource? FavIcon { get; set; }
+        //[Display(Name = "Favorite Icon")]
+        //public ImageResource? FavIcon { get; set; }
 
         [Display(Name = "Injected Content")]
         public InjectedContentList InjectedContent { get; set; } = new();

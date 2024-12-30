@@ -16,5 +16,7 @@ namespace WebApp.Models.WebContent.Resources {
 
         public List<Page> Pages { get; set; } = new();
 
+        public List<PageTemplate> PageTemplates { get; set; } = new();
+
     }
 }
