@@ -25,7 +25,6 @@ namespace WebApp.Models.Profiles {
         [Display(Name = "Phone Number")]
         public String? PhoneNumber { get; set; }
 
-
     }
 
 }

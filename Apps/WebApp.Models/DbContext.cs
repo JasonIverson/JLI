@@ -32,6 +32,9 @@ namespace WebApp.Models {
                 .HasMany(x => x.SocialMediaAccounts)
                 .WithOne(x => x.Profile)
                 .IsRequired();
+            builder.Entity<Profile>()
+                .HasOne(x => x.PrimaryContact);
+
             //builder.Entity<Profile>()
             //    .HasOne(x => x.PrimaryContact);
         }
@@ -39,32 +42,48 @@ namespace WebApp.Models {
         private readonly Guid DEFAULT_TEMPLATE = Guid.Parse("B033C355-D1EA-445C-904F-B3081DBB834F");
         private readonly Guid HOME_PAGE = Guid.Parse("D3380285-4739-444B-88DB-6699AFF1389D");
         private readonly Guid CONTACT_ID = Guid.Parse("3AE4C685-24E2-40B1-B96B-9772DDAA3602");
+        private readonly Guid PROFILE_ID = Guid.Parse("182733E1-C680-4633-B262-059CD75CD050");
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             base.OnConfiguring(optionsBuilder);
 
-
             optionsBuilder.UseSeeding((context, _) => {
-
+                bool changed = false;
                 PageTemplate? template = context.Set<PageTemplate>()
                     .FirstOrDefault(x => x.Id == DEFAULT_TEMPLATE);
-                if (template == null) {
-                    template = new() {
-                        Id = DEFAULT_TEMPLATE,
-                    };
-                    template.InitliazeSingleEntityIds();
-                    context.Set<PageTemplate>().Add(template);
+                Profile? profile = context.Set<Profile>()
+                    .FirstOrDefault(x => x.Id == PROFILE_ID);
+                Page? page = context.Set<Page>()
+                    .FirstOrDefault(x => x.Id == HOME_PAGE);
 
+                if (profile == null) {
+                    changed = true;
                     Contact contact = new() {
                         Id = CONTACT_ID,
                         Email = "jon.testington@example.com",
                         FamilyName = "Testington",
                         GivenName = "Jon",
-                        Title = "Consultant",                        
+                        Title = "Consultant",
                     };
-                    context.Set<Contact>().Add(contact);
+                    profile = new() {
+                        Id = PROFILE_ID,
+                        Name = "Default Profile",
+                        PrimaryContact = contact,
+                    };
+                    context.Set<Profile>().Add(profile);
+                }
 
-                    Page? page = new() {
+                if (template == null) {
+                    changed = true;
+                    template = new() {
+                        Id = DEFAULT_TEMPLATE,
+                    };
+                    template.InitliazeSingleEntityIds();
+                    context.Set<PageTemplate>().Add(template);
+                }
+
+                if (page == null) {
+                    page = new() {
                         Id = HOME_PAGE,
                         Name = "Home Page",
                         Type = PageTypes.Homepage,
@@ -76,8 +95,10 @@ namespace WebApp.Models {
                     page.Metadata.Keywords = "Jason Iverson, jason-iverson.com";
 
                     context.Set<Page>().Add(page);
-                    context.SaveChanges();
                 }
+
+                if (changed)
+                    context.SaveChanges();
 
             });
         }
