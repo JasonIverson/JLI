@@ -19,12 +19,12 @@
 
         protected Model() {
             this.Id = Model.GuidGenerator.Next(null);
-            this.InitliazeIds();
+            this.InitliazeSingleEntityIds();
         }
 
         #endregion Constructor(s)
 
-        protected virtual void InitliazeIds() { }
+        protected virtual void InitliazeSingleEntityIds() { }
 
     }
 
