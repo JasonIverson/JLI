@@ -14,13 +14,16 @@ namespace WebApp.Models {
         protected override void OnModelCreating(ModelBuilder builder) {
             base.OnModelCreating(builder);
 
+            builder.Entity<Page>()
+                .HasOne(x => x.Metadata);
+            builder.Entity<Page>()
+                .HasMany(x => x.InjectedContent)
+                .WithMany(x => x.Pages);
+
             builder.Entity<Profile>()
                 .HasMany(x => x.SocialMediaAccounts)
                 .WithOne(x => x.Profile)
                 .IsRequired();
-
-            builder.Entity<Page>()
-                .HasOne(x => x.Metadata);
         }
 
         public DbSet<InjectedContent> InjectedContents { get; set; }
