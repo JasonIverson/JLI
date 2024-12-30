@@ -4,20 +4,16 @@ using JLI.Framework.Data.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {
-    
-    public class Contact : SoftDeleteModel, IProfileChild {
 
-        public Guid ProfileId { get; set; }
-
-        public Profile? Profile { get; set; }
+    public abstract class Contact : SoftDeleteModel {
 
         [Required, FormalNameLength]
-        [Display(Name = "First Name")]
-        public String FirstName { get; set; } = null!;
+        [Display(Name = "Given Name")]
+        public String GivenName { get; set; } = null!;
 
         [Required, FormalNameLength]
-        [Display(Name = "Last Name")]
-        public String LastName { get; set; } = null!;
+        [Display(Name = "Family Name")]
+        public String FamilyName { get; set; } = null!;
 
         [FormalNameLength]
         public String? Title { get; set; }
@@ -25,14 +21,11 @@ namespace WebApp.Models.Profiles {
         [Required, EmailLength, EmailAddressValidation(false)]
         public String Email { get; set; } = null!;
 
-        [Required, PhoneNumberLength, PhoneNumberValidation(false)]
+        [Required, PhoneNumberLength, PhoneNumberValidation(true)]
         [Display(Name = "Phone Number")]
-        public String PhoneNumber { get; set; } = null!;
+        public String? PhoneNumber { get; set; }
 
-        public Guid? AddressId { get; set; }
 
-        public Common.Address? Address { get; set; } = null;
-        
     }
 
 }

@@ -25,28 +25,28 @@ namespace WebApp.Controllers {
                 Id = Guid.NewGuid(),
                 CreatedDateUtc = DateTime.UtcNow,
                 Name = "Jason Iverson Consulting",
-                PrimaryContact = new() {
-                    Id = Guid.NewGuid(),
-                    Email = "hello@jason-iverson.com",
-                    Address = new() {
-                        Id = Guid.NewGuid(),
-                        Line1 = "PO Box 277298",
-                        City = "Sacramento",
-                        State = States.CALIFORNIA.Abbreviation,
-                        PostalCode = "95827"
-                    },
-                    FirstName = "Jason",
-                    LastName = "Iverson",
-                    PhoneNumber = "9166680068",
-                    Title = "Proprietor",
-                    CreatedDateUtc = DateTime.UtcNow
-                },
+                //PrimaryContact = new() {
+                //    Id = Guid.NewGuid(),
+                //    Email = "hello@jason-iverson.com",
+                //    //Address = new() {
+                //    //    Id = Guid.NewGuid(),
+                //    //    Line1 = "PO Box 277298",
+                //    //    Locality = "Sacramento",
+                //    //    Region = States.CALIFORNIA.Abbreviation,
+                //    //    PostalCode = "95827"
+                //    //},
+                //    GivenName = "Jason",
+                //    FamilyName = "Iverson",
+                //    PhoneNumber = "9166680068",
+                //    Title = "Proprietor",
+                //    CreatedDateUtc = DateTime.UtcNow
+                //},
                 SocialMediaAccounts = new() {
-                    new SocialMediaAccount() {
-                        Platform = SocialMediaPlatforms.Twitter,
-                        Order = 0,
-                        UserName = "JasonAtSBWP"
-                    },
+                    //new SocialMediaAccount() {
+                    //    Platform = SocialMediaPlatforms.Twitter,
+                    //    Order = 0,
+                    //    UserName = "JasonAtSBWP"
+                    //},
                     new SocialMediaAccount() {
                         Platform = SocialMediaPlatforms.LinkedIn,
                         Order = 1,
@@ -57,18 +57,18 @@ namespace WebApp.Controllers {
 
             PageTemplate pageTemplate = new() {
                 Id = Guid.NewGuid(),
-                Profile = profile
+                //Profile = profile
             };
             Page page = new() {
                 Id = Guid.NewGuid(),
-                ProfileId = profile.Id,
-                Profile = profile,
+                //ProfileId = profile.Id,
+                //Profile = profile,
                 Name = "Home",
                 Type = PageTypes.Homepage,
                 Metadata = new() {
                     Title = "Jason Iverson Consulting",
                     Description = "Sacramento based Microsoft technologies consultant with over 15 years of experience delivering business solutions on time and under budget",
-                    Keywords = "Sacramento, Full Stack Developer, Back End Developer, Software Consultant, Web Develper, Software Engineer"
+                    Keywords = "Sacramento, .NET Full Stack Developer, Back End Developer, Software Consultant, Web Develper, Software Engineer"
                 }
             };
 

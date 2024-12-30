@@ -14,5 +14,9 @@ namespace WebApp.Models.WebContent.Resources {
         [Required, StringLength(1024)]
         public String Contents { get; set; } = null!;
 
+        public List<Page> Pages { get; set; } = new();
+
+        public List<PageTemplate> PageTemplates { get; set; } = new();
+
     }
 }

@@ -2,12 +2,12 @@
 
 namespace JLI.Framework.Data {
     
-    public class AddressCityLengthAttribute : StringLengthAttribute {
+    public class AddressLocalityLengthAttribute : StringLengthAttribute {
 
         #region Constructor(s)
 
-        public AddressCityLengthAttribute()
-            : base(32) { }
+        public AddressLocalityLengthAttribute()
+            : base(64) { }
 
         #endregion Constructor(s)
 

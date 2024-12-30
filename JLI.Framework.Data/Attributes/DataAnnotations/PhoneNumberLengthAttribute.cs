@@ -5,7 +5,7 @@ namespace JLI.Framework.Data.Attributes.DataAnnotations {
 
         #region Constants
 
-        public const int LENGTH = 10;
+        public const int LENGTH = 16;
 
         #endregion Constants
 
