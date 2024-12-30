@@ -4,9 +4,8 @@ using JLI.Framework.Data.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {
-    
-    public abstract class Contact : SoftDeleteModel /*, IProfileChild*/ 
-    {
+
+    public abstract class Contact : SoftDeleteModel {
 
         [Required, FormalNameLength]
         [Display(Name = "Given Name")]
@@ -25,7 +24,8 @@ namespace WebApp.Models.Profiles {
         [Required, PhoneNumberLength, PhoneNumberValidation(true)]
         [Display(Name = "Phone Number")]
         public String? PhoneNumber { get; set; }
-        
+
+
     }
 
 }

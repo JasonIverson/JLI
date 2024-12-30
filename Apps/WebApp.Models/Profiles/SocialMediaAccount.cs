@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {
 
-    public class SocialMediaAccount : OrderedModel /*, IProfileChild*/ {
+    public class SocialMediaAccount : OrderedModel {
 
         public SocialMediaPlatforms Platform { get; set; }
 

@@ -1,6 +1,8 @@
-﻿namespace WebApp.Models.WebContent.Sections {
+﻿using JLI.Framework.Data.Models;
+
+namespace WebApp.Models.WebContent.Sections {
     
-    public abstract class PageTemplateSectionBase {
+    public abstract class PageTemplateSectionBase : SoftDeleteModel {
 
     }
 

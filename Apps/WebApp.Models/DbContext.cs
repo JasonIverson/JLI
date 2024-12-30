@@ -32,6 +32,8 @@ namespace WebApp.Models {
                 .HasMany(x => x.SocialMediaAccounts)
                 .WithOne(x => x.Profile)
                 .IsRequired();
+            //builder.Entity<Profile>()
+            //    .HasOne(x => x.PrimaryContact);
         }
 
         private readonly Guid DEFAULT_TEMPLATE = Guid.Parse("B033C355-D1EA-445C-904F-B3081DBB834F");
@@ -65,13 +67,12 @@ namespace WebApp.Models {
 
                     context.Set<Page>().Add(page);
                     context.SaveChanges();
-
                 }
-
-
 
             });
         }
+
+        // public DbSet<Contact> Contacts { get; set; }
 
         public DbSet<InjectedContent> InjectedContents { get; set; }
 

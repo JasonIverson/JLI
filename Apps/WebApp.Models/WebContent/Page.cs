@@ -5,7 +5,7 @@ using WebApp.Models.WebContent.Resources;
 
 namespace WebApp.Models.WebContent {
 
-    public class Page : SoftDeleteModel /*, IProfileChild*/ {
+    public class Page : SoftDeleteModel {
 
         [Required, FormalNameLength]
         public String Name { get; set; } = "New Page";

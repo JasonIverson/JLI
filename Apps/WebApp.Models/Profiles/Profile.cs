@@ -12,6 +12,8 @@ namespace WebApp.Models.Profiles {
         [Display(Name = "Social Media Accounts")]
         public List<SocialMediaAccount> SocialMediaAccounts { get; set; } = new();
 
+        //public Contact PrimaryContact { get; set; } = null!;
+
     }
 
 }
