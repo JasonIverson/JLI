@@ -24,7 +24,7 @@
 
         #endregion Constructor(s)
 
-        protected virtual void InitliazeSingleEntityIds() { }
+        public virtual void InitliazeSingleEntityIds() { }
 
     }
 

@@ -21,7 +21,8 @@ namespace WebApp.Models.WebContent {
 
         //public PageTemplateFooter Footer { get; set; } = new();
 
-        protected override void InitliazeSingleEntityIds() {
+        public override void InitliazeSingleEntityIds() {
+            base.InitliazeSingleEntityIds();
             this.Metadata.Id = this.Id;
         }
 

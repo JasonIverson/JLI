@@ -20,7 +20,8 @@ namespace WebApp.Models.WebContent {
 
         // public List<SectionBase> Body { get; set; } = new();
 
-        protected override void InitliazeSingleEntityIds() {
+        public override void InitliazeSingleEntityIds() {
+            base.InitliazeSingleEntityIds();
             this.Metadata.Id = this.Id;
         }
 
