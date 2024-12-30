@@ -30,6 +30,33 @@ namespace WebApp.Models {
                 .IsRequired();
         }
 
+        readonly Guid HOME_PAGE = Guid.Parse("D3380285-4739-444B-88DB-6699AFF1389D");
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
+            base.OnConfiguring(optionsBuilder);
+
+
+            DateTime timestamp = DateTime.Now;
+            optionsBuilder.UseSeeding((context, _) => {
+                Page? page = context.Set<Page>().FirstOrDefault(x => x.Id == HOME_PAGE);
+                if (page == null) {
+                    page = new() { 
+                        Id = HOME_PAGE,
+                        Name = "Home Page",
+                        Type = PageTypes.Homepage,
+                    };
+                    page.InitliazeSingleEntityIds();
+                    page.Metadata.Title = "My New Home Page";
+                    page.Metadata.Description = "Welcome to my new homepage.";
+                    page.Metadata.Keywords = "Jason Iverson, jason-iverson.com";
+
+                    context.Set<Page>().Add(page);
+                    context.SaveChanges();
+                }
+                
+            });
+        }
+
         public DbSet<InjectedContent> InjectedContents { get; set; }
 
         public DbSet<Page> Pages { get; set; }
