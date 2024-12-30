@@ -38,6 +38,7 @@ namespace WebApp.Models {
 
         private readonly Guid DEFAULT_TEMPLATE = Guid.Parse("B033C355-D1EA-445C-904F-B3081DBB834F");
         private readonly Guid HOME_PAGE = Guid.Parse("D3380285-4739-444B-88DB-6699AFF1389D");
+        private readonly Guid CONTACT_ID = Guid.Parse("3AE4C685-24E2-40B1-B96B-9772DDAA3602");
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             base.OnConfiguring(optionsBuilder);
@@ -53,6 +54,15 @@ namespace WebApp.Models {
                     };
                     template.InitliazeSingleEntityIds();
                     context.Set<PageTemplate>().Add(template);
+
+                    Contact contact = new() {
+                        Id = CONTACT_ID,
+                        Email = "jon.testington@example.com",
+                        FamilyName = "Testington",
+                        GivenName = "Jon",
+                        Title = "Consultant",                        
+                    };
+                    context.Set<Contact>().Add(contact);
 
                     Page? page = new() {
                         Id = HOME_PAGE,
@@ -72,7 +82,7 @@ namespace WebApp.Models {
             });
         }
 
-        // public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Contact> Contacts { get; set; }
 
         public DbSet<InjectedContent> InjectedContents { get; set; }
 
