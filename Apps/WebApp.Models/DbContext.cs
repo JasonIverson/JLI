@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using System.Globalization;
 using WebApp.Models.Common;
 using WebApp.Models.Profiles;
 using WebApp.Models.WebContent;
@@ -23,6 +24,9 @@ namespace WebApp.Models {
             builder.Entity<PageTemplate>()
                 .HasMany(x => x.InjectedContent)
                 .WithMany(x => x.PageTemplates);
+            builder.Entity<PageTemplate>()
+                .HasMany(x => x.Pages)
+                .WithOne(x => x.Template);
 
             builder.Entity<Profile>()
                 .HasMany(x => x.SocialMediaAccounts)
@@ -30,20 +34,29 @@ namespace WebApp.Models {
                 .IsRequired();
         }
 
-        readonly Guid HOME_PAGE = Guid.Parse("D3380285-4739-444B-88DB-6699AFF1389D");
+        private readonly Guid DEFAULT_TEMPLATE = Guid.Parse("B033C355-D1EA-445C-904F-B3081DBB834F");
+        private readonly Guid HOME_PAGE = Guid.Parse("D3380285-4739-444B-88DB-6699AFF1389D");
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
             base.OnConfiguring(optionsBuilder);
 
 
-            DateTime timestamp = DateTime.Now;
             optionsBuilder.UseSeeding((context, _) => {
-                Page? page = context.Set<Page>().FirstOrDefault(x => x.Id == HOME_PAGE);
-                if (page == null) {
-                    page = new() { 
+
+                PageTemplate? template = context.Set<PageTemplate>()
+                    .FirstOrDefault(x => x.Id == DEFAULT_TEMPLATE);
+                if (template == null) {
+                    template = new() {
+                        Id = DEFAULT_TEMPLATE,
+                    };
+                    template.InitliazeSingleEntityIds();
+                    context.Set<PageTemplate>().Add(template);
+
+                    Page? page = new() {
                         Id = HOME_PAGE,
                         Name = "Home Page",
                         Type = PageTypes.Homepage,
+                        Template = template,
                     };
                     page.InitliazeSingleEntityIds();
                     page.Metadata.Title = "My New Home Page";
@@ -52,8 +65,11 @@ namespace WebApp.Models {
 
                     context.Set<Page>().Add(page);
                     context.SaveChanges();
+
                 }
-                
+
+
+
             });
         }
 

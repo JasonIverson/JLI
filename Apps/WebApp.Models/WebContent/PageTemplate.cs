@@ -1,11 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using JLI.Framework.Data.Models;
-using WebApp.Models.Profiles;
 using WebApp.Models.WebContent.Resources;
 
 namespace WebApp.Models.WebContent {
 
-    public class PageTemplate : SoftDeleteModel /*, IProfileChild*/ {
+    public class PageTemplate : SoftDeleteModel {
 
         //[Display(Name = "Favorite Icon")]
         //public ImageResource? FavIcon { get; set; }
@@ -20,6 +19,8 @@ namespace WebApp.Models.WebContent {
         //public PageTemplateHeader Header { get; set; } = new();
 
         //public PageTemplateFooter Footer { get; set; } = new();
+
+        public List<Page> Pages { get; set; } = new();
 
         public override void InitliazeSingleEntityIds() {
             base.InitliazeSingleEntityIds();
