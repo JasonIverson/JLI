@@ -10,7 +10,7 @@
             if (location.HasValue)
                 query = query.Where(x => x.Location == location.Value);
             if (contentType.HasValue)
-                query = query.Where(x => x.Type== contentType.Value);
+                query = query.Where(x => x.Type == contentType.Value);
             return query.AsEnumerable();
         }
 
