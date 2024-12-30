@@ -20,6 +20,10 @@ namespace WebApp.Models {
                 .HasMany(x => x.InjectedContent)
                 .WithMany(x => x.Pages);
 
+            builder.Entity<PageTemplate>()
+                .HasMany(x => x.InjectedContent)
+                .WithMany(x => x.PageTemplates);
+
             builder.Entity<Profile>()
                 .HasMany(x => x.SocialMediaAccounts)
                 .WithOne(x => x.Profile)
@@ -29,6 +33,8 @@ namespace WebApp.Models {
         public DbSet<InjectedContent> InjectedContents { get; set; }
 
         public DbSet<Page> Pages { get; set; }
+
+        public DbSet<PageTemplate> PageTemplates { get; set; }
 
         public DbSet<PageMetadata> PageMetadatas { get; set; }
 
