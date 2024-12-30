@@ -7,10 +7,6 @@ namespace WebApp.Models.WebContent {
 
     public class PageTemplate : SoftDeleteModel /*, IProfileChild*/ {
 
-        //public Guid ProfileId { get; set; }
-
-        //public Profile? Profile { get; set; }
-
         [Display(Name = "Favorite Icon")]
         public ImageResource? FavIcon { get; set; }
 
@@ -19,11 +15,15 @@ namespace WebApp.Models.WebContent {
 
         public PageTemplateMetadata Metadata { get; set; } = new();
 
-        public PageTemplateTheme Theme { get; set; } = new();
+        //public PageTemplateTheme Theme { get; set; } = new();
 
-        public PageTemplateHeader Header { get; set; } = new();
+        //public PageTemplateHeader Header { get; set; } = new();
 
-        public PageTemplateFooter Footer { get; set; } = new();
+        //public PageTemplateFooter Footer { get; set; } = new();
+
+        protected override void InitliazeIds() {
+            this.Metadata.Id = this.Id;
+        }
 
     }
 }

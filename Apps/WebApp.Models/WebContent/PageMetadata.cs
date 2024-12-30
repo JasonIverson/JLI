@@ -1,7 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using JLI.Framework.Data.Models;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.WebContent {
-    public class PageMetadata {
+    public class PageMetadata : Model {
 
         [Required, StringLength(128)]
         public String Title { get; set; } = null!;

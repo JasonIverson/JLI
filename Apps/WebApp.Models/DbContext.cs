@@ -1,6 +1,8 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using WebApp.Models.Common;
 using WebApp.Models.Profiles;
+using WebApp.Models.WebContent;
+using WebApp.Models.WebContent.Resources;
 
 namespace WebApp.Models {
 
@@ -16,7 +18,16 @@ namespace WebApp.Models {
                 .HasMany(x => x.SocialMediaAccounts)
                 .WithOne(x => x.Profile)
                 .IsRequired();
+
+            builder.Entity<Page>()
+                .HasOne(x => x.Metadata);
         }
+
+        public DbSet<InjectedContent> InjectedContents { get; set; }
+
+        public DbSet<Page> Pages { get; set; }
+
+        public DbSet<PageMetadata> PageMetadatas { get; set; }
 
         public DbSet<Profile> Profiles { get; set; }
 
