@@ -80,6 +80,20 @@ namespace WebApp.Models {
                         Id = DEFAULT_TEMPLATE,
                     };
                     template.InitliazeSingleEntityIds();
+                    template.InjectedContent.Add(new InjectedContent() {
+                        Contents = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css",
+                        Location = ContentLocations.Head,
+                        Name = "Bootstrap Styles",
+                        Source = ContentSources.Url,
+                        Type = ContentTypes.StyleSheet,
+                    });
+                    template.InjectedContent.Add(new InjectedContent() {
+                        Contents = "https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js",
+                        Location = ContentLocations.Head,
+                        Name = "Bootstrap Scripts",
+                        Source = ContentSources.Url,
+                        Type = ContentTypes.Script,
+                    });
                     context.Set<PageTemplate>().Add(template);
 
                     Page page = new() {
