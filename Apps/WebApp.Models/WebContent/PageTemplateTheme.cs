@@ -7,19 +7,19 @@ namespace WebApp.Models.WebContent {
 
         [Required, HexColorLength]
         [Display(Name = "Color (Primary)")]
-        public String ColorPrimary { get; set; } = "4F5165";
+        public string ColorPrimary { get; set; } = "4F5165";
         
         [Required, HexColorLength]
         [Display(Name = "Color (Dark)")]
-        public String ColorDark { get; set; } = "474044";
+        public string ColorDark { get; set; } = "474044";
 
         [Required, HexColorLength]
         [Display(Name = "Color (Light)")]
-        public String ColorLight { get; set; } = "547AA5";
+        public string ColorLight { get; set; } = "547AA5";
 
         [Required, HexColorLength]
         [Display(Name = "Color (Regular Text)")]
-        public String ColorRegularText { get; set; } = "293132";
+        public string ColorRegularText { get; set; } = "293132";
 
         [Display(Name = "Font (Regular Text)")]
         public Design.FontConfiguration FontRegularText { get; set; } = new();

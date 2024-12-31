@@ -8,7 +8,7 @@ namespace WebApp.Models.WebContent {
     public class Page : SoftDeleteModel {
 
         [Required, FormalNameLength]
-        public String Name { get; set; } = "New Page";
+        public string Name { get; set; } = "New Page";
 
         public PageTypes Type { get; set; } = PageTypes.Custom;
 

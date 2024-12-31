@@ -6,7 +6,7 @@ namespace WebApp.Models.WebContent.Resources {
 
         [StringLength(128)]
         [Display(Name = "Alternate Text")]
-        public String? AlternateText { get; set; }
+        public string? AlternateText { get; set; }
 
     }
 

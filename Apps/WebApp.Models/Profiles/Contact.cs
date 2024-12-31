@@ -9,21 +9,21 @@ namespace WebApp.Models.Profiles {
 
         [Required, FormalNameLength]
         [Display(Name = "Given Name")]
-        public String GivenName { get; set; } = null!;
+        public string GivenName { get; set; } = null!;
 
         [Required, FormalNameLength]
         [Display(Name = "Family Name")]
-        public String FamilyName { get; set; } = null!;
+        public string FamilyName { get; set; } = null!;
 
         [FormalNameLength]
-        public String? Title { get; set; }
+        public string? Title { get; set; }
 
         [Required, EmailLength, EmailAddressValidation(false)]
-        public String Email { get; set; } = null!;
+        public string Email { get; set; } = null!;
 
         [PhoneNumberLength, PhoneNumberValidation(true)]
         [Display(Name = "Phone Number")]
-        public String? PhoneNumber { get; set; }
+        public string? PhoneNumber { get; set; }
 
     }
 

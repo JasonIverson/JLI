@@ -5,9 +5,9 @@ namespace WebApp.Models.Common {
 
         public class State {
 
-            public String Abbreviation { get; init; } = null!;
+            public string Abbreviation { get; init; } = null!;
 
-            public String Name { get; init; } = null!;
+            public string Name { get; init; } = null!;
 
         }
 

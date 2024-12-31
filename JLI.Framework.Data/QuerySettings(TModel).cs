@@ -23,21 +23,21 @@
 
     //public class Role : Models.SoftDeleteModel {
 
-    //    public String Name { get; set; } = null!;
+    //    public string Name { get; set; } = null!;
 
     //}
 
     //public class Address : Models.SoftDeleteModel {
 
-    //    public String Line1 { get; set; } = null!;
+    //    public string Line1 { get; set; } = null!;
 
-    //    public String? Line2 { get; set; }
+    //    public string? Line2 { get; set; }
 
-    //    public String City { get; set; } = null!;
+    //    public string City { get; set; } = null!;
 
-    //    public String State { get; set; } = null!;
+    //    public string State { get; set; } = null!;
 
-    //    public String PostalCode { get; set; } = null!;
+    //    public string PostalCode { get; set; } = null!;
 
     //}
 

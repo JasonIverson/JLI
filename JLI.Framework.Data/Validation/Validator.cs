@@ -17,9 +17,9 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="emailAddress"></param>
         /// <returns></returns>
-        public static bool IsValidEmailAddress(String? emailAddress) {
+        public static bool IsValidEmailAddress(string? emailAddress) {
             // https://docs.microsoft.com/en-us/dotnet/standard/base-types/how-to-verify-that-strings-are-in-valid-email-format
-            if (String.IsNullOrWhiteSpace(emailAddress))
+            if (string.IsNullOrWhiteSpace(emailAddress))
                 return false;
 
             try {
@@ -59,11 +59,11 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="phoneNumber"></param>
         /// <returns></returns>
-        public static bool IsValidPhoneNumber(String? phoneNumber) {
-            if (String.IsNullOrWhiteSpace(phoneNumber))
+        public static bool IsValidPhoneNumber(string? phoneNumber) {
+            if (string.IsNullOrWhiteSpace(phoneNumber))
                 return false;
 
-            String pattern = $"^\\d{{{PhoneNumberLengthAttribute.LENGTH}}}$";
+            string pattern = $"^\\d{{{PhoneNumberLengthAttribute.LENGTH}}}$";
             bool result = Regex.IsMatch(phoneNumber, pattern, RegexOptions.None, Validator.RegexTimeout) &&
                 !phoneNumber.StartsWith("1"); // US area codes do not begin with a 1
             return result;
@@ -74,9 +74,9 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="url"></param>
         /// <returns></returns>
-        public static bool IsValidUrl(String? url) {
+        public static bool IsValidUrl(string? url) {
             // https://stackoverflow.com/a/7581824
-            if (String.IsNullOrWhiteSpace(url))
+            if (string.IsNullOrWhiteSpace(url))
                 return false;
 
             bool result = Uri.TryCreate(url, UriKind.Absolute, out Uri? uriResult)
@@ -89,9 +89,9 @@ namespace JLI.Framework.Data {
         /// </summary>
         /// <param name="hexColor"></param>
         /// <returns></returns>
-        public static bool IsValidHexColor(String? hexColor) {
+        public static bool IsValidHexColor(string? hexColor) {
             // https://stackoverflow.com/a/1636354
-            if (String.IsNullOrWhiteSpace(hexColor))
+            if (string.IsNullOrWhiteSpace(hexColor))
                 return false;
 
             bool result = Regex.IsMatch(hexColor, @"^(?:[0-9a-fA-F]{3}){1,2}$", RegexOptions.None, Validator.RegexTimeout);

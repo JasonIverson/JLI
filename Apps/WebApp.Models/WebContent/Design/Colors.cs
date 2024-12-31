@@ -2,9 +2,9 @@
     
     public static class Colors {
 
-        public static String HexBlack => "000000";
+        public static string HexBlack => "000000";
 
-        public static String HexWhite => "FFFFFF";
+        public static string HexWhite => "FFFFFF";
 
     }
 }

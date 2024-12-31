@@ -9,7 +9,7 @@
 
         #region Constructor(s)
 
-        internal Result(bool successful, String? message, Exception? exception, TValue? returnValue)
+        internal Result(bool successful, string? message, Exception? exception, TValue? returnValue)
             : base(successful, message, exception) {
             this.ReturnValue = returnValue;
         }

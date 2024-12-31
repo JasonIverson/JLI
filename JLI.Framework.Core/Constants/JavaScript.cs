@@ -5,11 +5,11 @@
     /// </summary>
     public static class JavaScript {
 
-        public static String DoubleQuote => "\"";
+        public static string DoubleQuote => "\"";
 
-        public static String SingleQuote => "'";
+        public static string SingleQuote => "'";
 
-        public static String Null => "null";
+        public static string Null => "null";
 
     }
 

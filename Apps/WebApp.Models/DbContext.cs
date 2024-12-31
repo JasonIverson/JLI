@@ -53,8 +53,6 @@ namespace WebApp.Models {
                     .FirstOrDefault(x => x.Id == DEFAULT_TEMPLATE);
                 Profile? profile = context.Set<Profile>()
                     .FirstOrDefault(x => x.Id == PROFILE_ID);
-                Page? page = context.Set<Page>()
-                    .FirstOrDefault(x => x.Id == HOME_PAGE);
 
                 if (profile == null) {
                     changed = true;
@@ -65,11 +63,14 @@ namespace WebApp.Models {
                         GivenName = "Jon",
                         Title = "Consultant",
                     };
+                    contact.InitliazeSingleEntityIds();
+
                     profile = new() {
                         Id = PROFILE_ID,
                         Name = "Default Profile",
                         PrimaryContact = contact,
                     };
+                    profile.InitliazeSingleEntityIds();
                     context.Set<Profile>().Add(profile);
                 }
 
@@ -80,10 +81,8 @@ namespace WebApp.Models {
                     };
                     template.InitliazeSingleEntityIds();
                     context.Set<PageTemplate>().Add(template);
-                }
 
-                if (page == null) {
-                    page = new() {
+                    Page page = new() {
                         Id = HOME_PAGE,
                         Name = "Home Page",
                         Type = PageTypes.Homepage,
@@ -93,7 +92,6 @@ namespace WebApp.Models {
                     page.Metadata.Title = "My New Home Page";
                     page.Metadata.Description = "Welcome to my new homepage.";
                     page.Metadata.Keywords = "Jason Iverson, jason-iverson.com";
-
                     context.Set<Page>().Add(page);
                 }
 

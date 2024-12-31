@@ -6,7 +6,7 @@ namespace WebApp.Models.WebContent.Resources {
     public abstract class FileResourceBase : ResourceBase {
 
         [Required, UrlLength]
-        public String Url { get; set; } = null!;
+        public string Url { get; set; } = null!;
 
     }
 

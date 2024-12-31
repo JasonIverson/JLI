@@ -9,7 +9,7 @@ namespace WebApp.Models.WebContent.Design {
         public byte Size { get; set; } = 16;
 
         [Required, FormalNameLength]
-        public String Name { get; set; } = "Roboto";
+        public string Name { get; set; } = "Roboto";
 
         public FontWeights Weight { get; set; } = FontWeights.Normal;
 

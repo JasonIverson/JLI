@@ -7,13 +7,13 @@
 
         #region Constants
 
-        private const String SUCCESS_MESSAGE = "Success!";
+        private const string SUCCESS_MESSAGE = "Success!";
 
         #endregion Constants
 
         #region Constructor(s)
 
-        internal Result(bool successful, String? message, Exception? exception) {
+        internal Result(bool successful, string? message, Exception? exception) {
             this.Successful = successful;
             this.Message = message;
             this.Exception = exception;
@@ -27,15 +27,15 @@
             return new Result(true, SUCCESS_MESSAGE, null);
         }
 
-        public static Result SuccessResult(String message) {
+        public static Result SuccessResult(string message) {
             return new Result(true, message, null);
         }
 
-        public static Result ErrorResult(String message) {
+        public static Result ErrorResult(string message) {
             return new Result(false, message, null);
         }
 
-        public static Result ErrorResult(String message, Exception exception) {
+        public static Result ErrorResult(string message, Exception exception) {
             return new Result(false, message, exception);
         }
 
@@ -47,15 +47,15 @@
             return new Result<TValue>(true, SUCCESS_MESSAGE, null, returnValue);
         }
 
-        public static Result<TValue> SuccessResult<TValue>(String message, TValue returnValue) {
+        public static Result<TValue> SuccessResult<TValue>(string message, TValue returnValue) {
             return new Result<TValue>(true, message, null, returnValue);
         }
 
-        public static Result<TValue> ErrorResult<TValue>(String message) {
+        public static Result<TValue> ErrorResult<TValue>(string message) {
             return new Result<TValue>(false, message, null, default);
         }
 
-        public static Result<TValue> ErrorResult<TValue>(String message, Exception exception) {
+        public static Result<TValue> ErrorResult<TValue>(string message, Exception exception) {
             return new Result<TValue>(false, message, exception, default(TValue));
         }
 
@@ -65,7 +65,7 @@
 
         public bool Successful { get; private set; }
 
-        public String? Message { get; private set; }
+        public string? Message { get; private set; }
 
         [System.Text.Json.Serialization.JsonIgnore]
         public Exception? Exception { get; private set; }
@@ -75,7 +75,7 @@
         #region Overrides
 
         public override string? ToString() {
-            String? message = this.Message;
+            string? message = this.Message;
             if (!this.Successful)
                 message = $"Error:  {message}";
             if (this.Exception != null)

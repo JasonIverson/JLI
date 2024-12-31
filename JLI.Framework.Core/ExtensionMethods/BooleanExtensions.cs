@@ -11,7 +11,7 @@ namespace System {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static String ToJavaScriptLiteral(this bool value) {
+        public static string ToJavaScriptLiteral(this bool value) {
             return value.ToString().ToLower();
         }
 
@@ -20,18 +20,18 @@ namespace System {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static String ToYesNo(this bool value) {
+        public static string ToYesNo(this bool value) {
             return value.ToDisplayString("Yes", "No");
         }
 
         /// <summary>
-        /// Returns a custome <see cref="String"/> value based on the <paramref name="value"/> provided.
+        /// Returns a custome <see cref="string"/> value based on the <paramref name="value"/> provided.
         /// </summary>
         /// <param name="value"></param>
         /// <param name="trueString">Text returned if "true"</param>
         /// <param name="falseString">Text returned if "false"</param>
         /// <returns></returns>
-        public static String ToDisplayString(this bool value, String trueString, String falseString) {
+        public static string ToDisplayString(this bool value, string trueString, string falseString) {
             return value ? trueString : falseString;
         }
 
@@ -44,7 +44,7 @@ namespace System {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static String ToJavaScriptLiteral(this bool? value) {
+        public static string ToJavaScriptLiteral(this bool? value) {
             if (!value.HasValue)
                 return JavaScript.Null;
             return value.Value.ToJavaScriptLiteral();

@@ -7,7 +7,7 @@ namespace WebApp.Models.WebContent.Resources {
 
         [Required]
         [FormalNameLength]
-        public String Name { get; set; } = null!;
+        public string Name { get; set; } = null!;
 
         public bool Disabled { get; set; }
 

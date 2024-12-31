@@ -9,7 +9,7 @@ namespace System {
         /// <param name="exception">The exceptoin</param>
         /// <param name="separator">Separator appended between exception messages</param>
         /// <returns></returns>
-        public static String Traverse(this Exception exception, String separator = "\r\n\r\n") {
+        public static string Traverse(this Exception exception, string separator = "\r\n\r\n") {
             StringBuilder builder = new StringBuilder();
 
             Exception? realException = exception;

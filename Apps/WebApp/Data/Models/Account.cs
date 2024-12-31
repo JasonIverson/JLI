@@ -9,7 +9,7 @@ namespace WebApp.Data.Models {
 
         [Required]
         [FormalNameLength]
-        public String Name { get; set; } = String.Empty;
+        public string Name { get; set; } = string.Empty;
 
         public List<WebAppUser> Users { get; set; } = new();
 

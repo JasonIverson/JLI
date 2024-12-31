@@ -13,11 +13,11 @@ namespace WebApp.Data.Models {
 
         [Required]
         [FormalNameLength]
-        public String FirstName { get; set; } = String.Empty;
+        public string FirstName { get; set; } = string.Empty;
 
         [Required]
         [FormalNameLength]
-        public String LastName { get; set; } = String.Empty;
+        public string LastName { get; set; } = string.Empty;
 
     }
 }

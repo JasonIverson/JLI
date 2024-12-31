@@ -5,10 +5,10 @@ namespace WebApp.Models.WebContent.Design {
     public class ColorPairing {
 
         [Required, HexColorLength, HexColorValidation(false)]
-        public String Background { get; set; } = null!;
+        public string Background { get; set; } = null!;
 
         [Required, HexColorLength, HexColorValidation(false)]
-        public String Foreground { get; set; } = null!;
+        public string Foreground { get; set; } = null!;
 
     }
 }

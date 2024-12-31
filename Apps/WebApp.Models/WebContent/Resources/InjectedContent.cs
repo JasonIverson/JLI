@@ -12,7 +12,7 @@ namespace WebApp.Models.WebContent.Resources {
         public ContentSources Source { get; set; }
 
         [Required, StringLength(1024)]
-        public String Contents { get; set; } = null!;
+        public string Contents { get; set; } = null!;
 
         public List<Page> Pages { get; set; } = new();
 

@@ -9,7 +9,7 @@
         /// <param name="dateTimeUtc"></param>
         /// <param name="toTimezoneId"></param>
         /// <returns></returns>
-        public static DateTime Localize(this DateTime dateTimeUtc, String toTimezoneId) {
+        public static DateTime Localize(this DateTime dateTimeUtc, string toTimezoneId) {
             TimeZoneInfo timezoneInfo = TimeZoneInfo.FindSystemTimeZoneById(toTimezoneId);
             DateTime returnValue = TimeZoneInfo.ConvertTimeFromUtc(dateTimeUtc.ToUniversalTime(), timezoneInfo);
             return returnValue;
@@ -25,7 +25,7 @@
         /// <param name="dateTimeUtc"></param>
         /// <param name="toTimezoneId"></param>
         /// <returns></returns>
-        public static DateTime? Localize(this DateTime? dateTimeUtc, String toTimezoneId) {
+        public static DateTime? Localize(this DateTime? dateTimeUtc, string toTimezoneId) {
             if (!dateTimeUtc.HasValue)
                 return dateTimeUtc;
 
