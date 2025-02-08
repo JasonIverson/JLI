@@ -42,7 +42,7 @@ namespace System {
         }
 
         /// <summary>
-        /// Returns a "string in this format" as a "string In This Format"
+        /// Returns a "string in this format" as a "String In This Format"
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
