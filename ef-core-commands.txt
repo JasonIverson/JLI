@@ -1,0 +1,5 @@
+-- Update database
+dotnet ef database update --project WebApp.Models --startup-project WebApp
+
+-- Add migrations
+dotnet ef migrations add "MIGRATION_NAME" --project WebApp.Models --startup-project WebApp
