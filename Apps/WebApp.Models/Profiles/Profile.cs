@@ -1,5 +1,5 @@
-﻿using JLI.Framework.Data.Models;
-using JLI.Framework.Data;
+﻿using JLI.Framework.Data;
+using JLI.Framework.Data.Models;
 using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.Profiles {

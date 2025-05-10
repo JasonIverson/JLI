@@ -12,8 +12,8 @@ using WebApp.Models;
 namespace WebApp.Models.Migrations
 {
     [DbContext(typeof(DbContext))]
-    [Migration("20250510033911_Unknown")]
-    partial class Unknown
+    [Migration("20250510231704_Initial Migration")]
+    partial class InitialMigration
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -269,7 +269,6 @@ namespace WebApp.Models.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasMaxLength(64)
                         .HasColumnType("nvarchar(64)");
 

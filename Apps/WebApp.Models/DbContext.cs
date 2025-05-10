@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System.Globalization;
-using WebApp.Models.Common;
 using WebApp.Models.Profiles;
 using WebApp.Models.WebContent;
 using WebApp.Models.WebContent.Resources;

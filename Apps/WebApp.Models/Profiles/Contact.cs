@@ -18,8 +18,8 @@ namespace WebApp.Models.Profiles {
         [FormalNameLength]
         public string? Title { get; set; }
 
-        [Required, EmailLength, EmailAddressValidation(false)]
-        public string Email { get; set; } = null!;
+        [EmailLength, EmailAddressValidation(false)]
+        public string? Email { get; set; } = null!;
 
         [PhoneNumberLength, PhoneNumberValidation(true)]
         [Display(Name = "Phone Number")]

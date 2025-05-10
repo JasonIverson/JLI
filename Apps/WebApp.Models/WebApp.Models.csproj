@@ -23,4 +23,8 @@
     <ProjectReference Include="..\..\JLI.Framework.Data\JLI.Framework.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Migrations\" />
+  </ItemGroup>
+
 </Project>

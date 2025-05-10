@@ -1,8 +1,8 @@
-﻿using System.ComponentModel.DataAnnotations;
-using JLI.Framework.Data;
+﻿using JLI.Framework.Data;
+using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.WebContent.Resources {
-    
+
     public abstract class ResourceBase : JLI.Framework.Data.Models.SoftDeleteModel {
 
         [Required]

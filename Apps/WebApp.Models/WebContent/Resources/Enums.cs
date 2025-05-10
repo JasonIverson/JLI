@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace WebApp.Models.WebContent.Resources {
-    
+
     public enum ContentLocations : byte {
 
         [Display(Name = "Head Tag")]

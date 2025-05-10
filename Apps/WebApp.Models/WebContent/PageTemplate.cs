@@ -1,5 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
-using JLI.Framework.Data.Models;
+﻿using JLI.Framework.Data.Models;
+using System.ComponentModel.DataAnnotations;
 using WebApp.Models.WebContent.Resources;
 
 namespace WebApp.Models.WebContent {
