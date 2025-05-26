@@ -11,7 +11,7 @@ namespace System {
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static string Normalize(this string source) {
+        public static string? Normalize(this string? source) {
             if (string.IsNullOrWhiteSpace(source))
                 return source;
             return source.ToUpper();
@@ -22,7 +22,7 @@ namespace System {
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static string ToDigits(this string value) {
+        public static string? ToDigits(this string? value) {
             if (string.IsNullOrWhiteSpace(value))
                 return value;
 
@@ -46,10 +46,10 @@ namespace System {
         /// </summary>
         /// <param name="source"></param>
         /// <returns></returns>
-        public static string ToTitleCase(this string source) {
+        public static string? ToTitleCase(this string? source) {
             if (string.IsNullOrWhiteSpace(source))
                 return source;
-            return System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(source);
+            return Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(source);
         }
 
         /// <summary>
@@ -60,7 +60,7 @@ namespace System {
         public static string? UrlDecode(string? source) {
             if (source == null)
                 return source;
-            return System.Web.HttpUtility.UrlDecode(source);
+            return Web.HttpUtility.UrlDecode(source);
         }
 
         /// <summary>
@@ -71,7 +71,7 @@ namespace System {
         public static string? UrlEncode(this string? source) {
             if (source == null)
                 return source;
-            return System.Web.HttpUtility.UrlEncode(source);
+            return Web.HttpUtility.UrlEncode(source);
         }
 
         #endregion
@@ -84,10 +84,10 @@ namespace System {
         /// <param name="source"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static string? Coalesce(this IEnumerable<string> source, string? defaultValue = null) {
+        public static string? Coalesce(this IEnumerable<string?> source, string? defaultValue = null) {
             string? returnValue = defaultValue;
             if (source?.Any() ?? false) {
-                foreach (string value in source) {
+                foreach (string? value in source) {
                     if (!string.IsNullOrWhiteSpace(value)) {
                         returnValue = value;
                         break;

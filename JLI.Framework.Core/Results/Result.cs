@@ -56,7 +56,7 @@
         }
 
         public static Result<TValue> ErrorResult<TValue>(string message, Exception exception) {
-            return new Result<TValue>(false, message, exception, default(TValue));
+            return new Result<TValue>(false, message, exception, default);
         }
 
         #endregion Parameterized static accessors
