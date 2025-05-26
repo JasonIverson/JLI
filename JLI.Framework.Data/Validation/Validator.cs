@@ -46,7 +46,7 @@ namespace JLI.Framework.Data {
             }
 
             try {
-                return Regex.IsMatch(emailAddress, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase, 
+                return Regex.IsMatch(emailAddress, @"^[^@\s]+@[^@\s]+\.[^@\s]+$", RegexOptions.IgnoreCase,
                     TimeSpan.FromMilliseconds(250));
             }
             catch (RegexMatchTimeoutException) {

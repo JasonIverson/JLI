@@ -20,8 +20,8 @@
             this.Input = input;
         }
 
-        public ServiceModelBase(TInput input, 
-            TData data) 
+        public ServiceModelBase(TInput input,
+            TData data)
             : this(input) {
             this.Data = data;
         }

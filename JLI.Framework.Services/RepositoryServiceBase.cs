@@ -33,7 +33,7 @@ namespace JLI.Framework.Services {
 
         #region Utility Methods        
 
-        public TQuerySettings GetQuerySettings(bool trackingEnabled) => 
+        public TQuerySettings GetQuerySettings(bool trackingEnabled) =>
             this.Repository.GetQuerySettings(trackingEnabled);
 
         #endregion Utility Methods

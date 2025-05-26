@@ -37,7 +37,7 @@ namespace JLI.Framework.Data {
         /// <param name="model"></param>
         /// <param name="changeTrackingType"></param>
         public void EntityTracking(TModel model, ModelTrackingTypes modelTrackingType) {
-            switch(modelTrackingType) {
+            switch (modelTrackingType) {
                 case ModelTrackingTypes.Add:
                     if (model.CreatedDateUtc == DateTime.MinValue)
                         model.CreatedDateUtc = DateTime.UtcNow;
@@ -56,7 +56,7 @@ namespace JLI.Framework.Data {
                     }
                     else {
                         this.DbSet.Remove(model);
-                    }                    
+                    }
                     break;
                 case ModelTrackingTypes.Detach:
                     this.DbContext.Entry(model).State = EntityState.Detached;

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace JLI.Framework.Data {
-    
+
     /// <summary>
     /// Ensures that <see cref="string"/> data is valid according to the validation routine provided.
     /// </summary>

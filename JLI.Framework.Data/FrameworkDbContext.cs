@@ -22,10 +22,10 @@ namespace JLI.Framework.Data {
         where TKey : IEquatable<TKey>
         where TUser : IdentityUser<TKey>
         where TIdentityRole : IdentityRole<TKey>
-        where TIdentityUserClaim: IdentityUserClaim<TKey>
+        where TIdentityUserClaim : IdentityUserClaim<TKey>
         where TIdentityUserRole : IdentityUserRole<TKey>
         where TIdentityUserLogin : IdentityUserLogin<TKey>
-        where TIdentityRoleClaim: IdentityRoleClaim<TKey>
+        where TIdentityRoleClaim : IdentityRoleClaim<TKey>
         where TIdentityUserToken : IdentityUserToken<TKey> {
 
         public FrameworkDbContext(Microsoft.EntityFrameworkCore.DbContextOptions options)
@@ -41,7 +41,7 @@ namespace JLI.Framework.Data {
         IdentityUserRole<TKey>,
         IdentityUserLogin<TKey>,
         IdentityRoleClaim<TKey>,
-        IdentityUserToken<TKey>> 
+        IdentityUserToken<TKey>>
         where TKey : IEquatable<TKey> {
 
         public FrameworkDbContext(Microsoft.EntityFrameworkCore.DbContextOptions options)

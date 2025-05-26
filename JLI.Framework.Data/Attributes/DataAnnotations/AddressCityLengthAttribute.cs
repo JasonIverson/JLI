@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
 namespace JLI.Framework.Data {
-    
+
     public class AddressLocalityLengthAttribute : StringLengthAttribute {
 
         #region Constructor(s)

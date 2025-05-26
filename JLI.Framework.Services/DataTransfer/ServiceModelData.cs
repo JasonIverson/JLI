@@ -1,5 +1,5 @@
 ﻿namespace JLI.Framework.Services {
-    
+
     /// <summary>
     /// Contains data that is required in order to interact with <see cref="InputBase{TModel}"/> objects.
     /// </summary>
